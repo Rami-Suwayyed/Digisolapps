@@ -1,0 +1,26 @@
+.settings-group .settings-section:not(:last-child){
+    padding-left: 30px;
+    border-left: 1px solid #ccc;
+}
+.settings-group .settings-section{
+    padding: 10px 15px 10px 0;
+}
+.payment-method-box{
+    background: #f7f7f7;
+    border-radius: 5px;
+}
+.payment-method-box img{
+    width: 40px;
+    border-radius: 5px;
+    margin: 15px 0 ;
+}
+.upload-payment-method-icon .button-upload-file{
+    display: inline-block;
+    width: 100%;
+    border: unset;
+    background: #f1f1f1;
+    cursor: unset;
+}
+.upload-payment-method-icon .button-upload-file .upload-file-content i{
+    margin: 0;
+}

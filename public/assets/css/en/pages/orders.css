@@ -1,0 +1,21 @@
+.status {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c7430;
+}
+.status.yellow{
+    color: #999d00;
+}
+.status.red{
+    color: #9d0000;
+}
+.status.green{
+    color: #1c7430;
+}
+
+.order-details-box li > div.value {
+    border-left: 1px solid #ccc;
+}
+.order-details-box li div{
+    padding: 0.75rem 1.25rem;
+}

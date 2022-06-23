@@ -1,0 +1,3 @@
+->get(["users.*","subjects_teachers.commission"]);
+
+   $timers->price=$teacher->commission;

@@ -1,0 +1,153 @@
+@page {
+    margin: 0mm;
+    margin-header: 0mm;
+    margin-footer: 0mm;
+}
+.width-50-percent{ width: 50%}
+.width-30-percent{ width: 30%}
+.width-70-percent{ width: 70%}
+.width-40-percent{ width: 40%}
+.width-60-percent{ width: 60%}
+.text-right{ text-align: right}
+.font-bold{font-weight: bold}
+
+body{font-family: 'Cairo', sans-serif;}
+hr{
+    border-color: #ccc;
+    color: #ccc;
+}
+header {
+    background: #1A6A8F;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+section {
+    margin-bottom: 20px;
+}
+.container{
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+header .section, section .section {
+    width: 50%;
+    float: left;
+}
+header .logo{
+    width: 130px;
+    margin: 2rem 0 3rem 1rem;
+}
+header .logo img {
+    max-width: 100%;
+}
+header .information{
+    margin-top: 2rem;
+}
+
+header .information .field{
+    color: #fff;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+header .information .url a{
+    color: #fff;
+}
+section.customer .information{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+section.customer .information .head, section.customer .information .value {float: left}
+section.customer .information .head{
+    width: 40%;
+}
+section.customer .information .value{width: 60%; color: #404040}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 1.25em;
+    min-height: 100vh;
+    color: #444;
+}
+.page-break {
+    page-break-after: always;
+    page-break-inside: avoid;
+    clear:both;
+
+}
+.page-break-before {
+    page-break-before: always;
+    page-break-inside: avoid;
+    clear:both;
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-radius: 1em;
+    overflow: hidden;
+}
+th {
+    background: #1A6A8F;
+    color: #fff;
+}
+th, td {
+    padding: 1em;
+    text-align: center;
+    font-size: 13px;
+}
+tr, td {
+    display: block;
+}
+tr {
+    margin-bottom: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 1em;
+    text-align: right;
+}
+tr:last-of-type {
+    margin-bottom: 0;
+}
+
+tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+tr.total{
+    background-color: #fff;
+}
+tr.total td{
+    font-weight: bold;
+}
+
+footer{
+    margin-top: 50px;
+}
+footer .total-box{
+    margin-bottom: 10px;
+}
+footer .total-box .head{
+    width: 40%;
+    float: left;
+}
+footer .total-box .value{
+    width: 60%;
+    float: right;
+    text-align: center;
+}
+
+footer .total-box .head{
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+footer .total-box.total-amount{
+    padding: 10px;
+    background-color: #1A6A8F;
+    color: #fff;
+}
