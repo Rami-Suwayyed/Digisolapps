@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\App;
 class DigisolApp extends Model
 {
     use HasFactory;
-    protected $table = "digisol_apps";
 
 
     public function getNameAttribute(){
