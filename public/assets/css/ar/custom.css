@@ -346,6 +346,7 @@ table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:
 
 
 }
+
 .uploaded-images{
 }
 .uploaded-images .img-container{
@@ -354,6 +355,35 @@ table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:
     margin-right: 5px;
 }
 .uploaded-images .img-container img{
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+.uploaded-icon{
+}
+.uploaded-icon .img-container{
+    height: 100px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.uploaded-icon .img-container img{
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.uploaded-background{
+}
+.uploaded-background .img-container{
+    height: 100px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.uploaded-background .img-container img{
     max-width: 100%;
     max-height: 100%;
     border: 1px solid #ddd;

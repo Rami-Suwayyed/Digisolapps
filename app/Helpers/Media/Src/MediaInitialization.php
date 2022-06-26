@@ -21,7 +21,7 @@ trait MediaInitialization {
         foreach ($mediaGroup->getAllGroups() as $group){
             $this->groups[$group->getName()] = ["path" => trim($group->getSavingPath(), DS), "type" => $group->getType()];
         }
-        $this->uploadMainPath = "uploads" . DS . trim($this->setMainDirectoryPath(),  config("global.ds"));
+        $this->uploadMainPath = "public/uploads" . DS . trim($this->setMainDirectoryPath(),  config("global.ds"));
         $this->urlMainPath = trim(str_replace("\\", "/", $this->uploadMainPath), "/");
         unset($mediaGroup);
     }

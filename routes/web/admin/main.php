@@ -125,6 +125,7 @@ Route::group(["middleware" => ['manager']],function (){
         Route::get("/create", "DigisolAppsController@create")->name("create");
         Route::post("/","DigisolAppsController@store")->name("store");
         Route::get("/{id}","DigisolAppsController@edit")->name("edit");
+        Route::get("Show/{id}","DigisolAppsController@Show")->name("show");
         Route::put("/{id}","DigisolAppsController@update")->name("update");
         Route::delete("/{id}","DigisolAppsController@destroy")->name("destroy");
     });

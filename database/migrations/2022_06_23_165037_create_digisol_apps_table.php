@@ -15,6 +15,13 @@ class CreateDigisolAppsTable extends Migration
     {
         Schema::create('digisol_apps', function (Blueprint $table) {
             $table->id();
+            $table->string('name_en');
+            $table->string('name_ar');
+            $table->date('data');
+            $table->text('link');
+            $table->text('description_en')->nullable();
+            $table->text('description_ar')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
