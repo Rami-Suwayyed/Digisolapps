@@ -30,14 +30,6 @@
                         <a href="{{route("admin.managers.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__("Create Manager")}}</a>
                     </div>
                 </div>
-                <div class="col-lg-6 p-3 text-right">
-                    <form action="{{route("admin.managers.export")}}" method="post"  id="form-excel">
-                        @csrf
-                        <input type="hidden" name="status" value="0">
-                        <span  class="download-excel btn btn-primary"><i class="far fa-fw fa-lg  fa-file-excel text-left"></i> {{__("Export As Excel")}}</span>
-
-                    </form>
-                </div>
             </div>
             <div class="tile">
                 <div class="tile-body">

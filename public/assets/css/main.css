@@ -27,7 +27,7 @@
   --white: #FFF;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #1e7e34;
+  --primary: #a73a96;
   --secondary: #FFC107;
   --success: #28a745;
   --info: #17a2b8;
@@ -42,7 +42,7 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --primary-dark: #1360a0;
+  --primary-dark: #a73a96;
     --primary-gary:#E6E7E8;
     --primary-yellow:#FFDE2F ;
 
@@ -2562,14 +2562,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #FFF;
-  background-color: #0c5206;
-  border-color: #0c5206;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-primary:hover {
-  color: #FFF;
-  background-color: #0c5206;
-  border-color: #0c5206;
+  color: var(--primary);
+    background-color: white;
+    border-color: var(--primary);
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2579,15 +2579,15 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #FFF;
-  background-color: #0c5206;
-  border-color: #0c5206;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #FFF;
-  background-color: #0c5206;
-  border-color: #0c5206;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,

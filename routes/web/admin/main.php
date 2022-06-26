@@ -153,7 +153,7 @@ Route::group(["middleware" => ['manager']],function (){
     });
 
 
-
+    Route::get("/SendEmail/{id}", "ManagerController@SendEmail")->name("SendEmail");
 
 });
 

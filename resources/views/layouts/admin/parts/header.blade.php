@@ -37,7 +37,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/' . app()->getLocale() . '/custom.css')}}">
  <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js" async></script>
 
- <link rel="icon" href="{{asset("assets/ostad-logo.svg")}}" >
+ <link rel="icon" href="{{asset("assets/Untitled.png")}}" >
  <!-- Google fonts -->
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

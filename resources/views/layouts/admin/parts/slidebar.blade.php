@@ -1,8 +1,8 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <a class="app-sidebar__logo" href="{{ route("admin.dashboard.index") }}">
-        <img src="{{asset("assets/gr.png")}}" alt="" class="site-logo full">
-        <img src="{{asset("assets/W.png")}}" alt="" class="site-logo small">
+        <img src="{{asset("assets/Untitled.png")}}" alt="" class="site-logo full">
+        <img src="{{asset("assets/Untitled.png")}}" alt="" class="site-logo small">
     </a>
     <div class="app-sidebar__user">
         <div class="avatar-box">
