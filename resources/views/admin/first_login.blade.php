@@ -64,7 +64,7 @@ input:disabled {
     margin: auto;
     display: block;
     color: #fff;
-    background-color: #1e7e34;
+    background-color: #a73a96;
     border-color: #065492;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
@@ -100,9 +100,9 @@ button[disabled] {
 <body>
     <section>
         <!-- Image and text -->
-        <nav class="navbar navbar-light" style="background-color: #1e7e34">
+        <nav class="navbar navbar-light" style="background-color: #ffffff ">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/W.png') }}" width="50" height="50" class="d-inline-block align-top" alt="">
+                <img src="{{ asset('assets/Untitled.png') }}" width="50" height="50" class="d-inline-block align-top" alt="">
             </a>
             <ul class="app-nav">
                 <!-- User Menu-->
@@ -128,7 +128,7 @@ button[disabled] {
               <form action="{{route('admin.login.completed')}}" method="post" id="signupForm">
                 @csrf
                 @method("put")
-                <img src="{{asset("assets/ostad-logo.svg")}}" id="signupLogo"/>
+                <img src="{{asset("assets/Untitled.png")}}" id="signupLogo"/>
                 <h2 class="formTitle">
                     Change Password
                 </h2>

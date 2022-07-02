@@ -74,10 +74,59 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
+                                    <label class="control-label">{{__("Link Web")}}</label>
+                                    <input class="form-control @if($errors->has('link_web')) is-invalid @endif" type="text" name="link_web" placeholder="{{__("Enter Link Web")}}" value="{{inputValue("link_web", $app)}}">
+                                </div>
+                                @error("link_web")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{__("Link Android")}}</label>
+                                    <input class="form-control @if($errors->has('link_android')) is-invalid @endif" type="text" name="link_android" placeholder="{{__("Enter Link Android")}}" value="{{inputValue("link_android", $app)}}">
+                                </div>
+                                @error("link_android")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{__("English Link Ios")}}</label>
+                                    <input class="form-control @if($errors->has('link_ios')) is-invalid @endif" type="text" name="link_ios" placeholder="{{__("Enter Link Ios")}}" value="{{inputValue("link_ios", $app)}}">
+                                </div>
+                                @error("link_ios")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{__("Link Huawei")}}</label>
+                                    <input class="form-control @if($errors->has('link_huawei')) is-invalid @endif" type="text" name="link_huawei" placeholder="{{__("Enter Link Huawei")}}" value="{{inputValue("link_huawei", $app)}}">
+                                </div>
+                                @error("link_huawei")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{__("data")}}</label>
+                                    <input class="form-control @if($errors->has('data')) is-invalid @endif" type="date" name="data" placeholder="{{__("Enter Data")}}" value="{{inputValue("data", $app)}}">
+                                </div>
+                                @error("data")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <label class="control-label">{{__("Icon Photo")}}</label>
                                     <div>
                                         <button class="btn btn-primary form-control button-upload-file" >
-                                            <input class="input-file show-uploaded" data-upload-type="single" data-imgs-container-class="uploaded-icon" type="file" name="icon">
+                                            <input class="input-file show-uploaded" data-upload-type="single" accept="image/png, image/gif, image/jpeg" data-imgs-container-class="uploaded-icon" type="file" name="icon">
                                             <span class="upload-file-content">
                                                 <i class="fas fa-upload fa-lg upload-file-content-icon left"></i>
                                                 <span class="upload-file-content-text">{{__("Upload Photo")}}</span>
@@ -103,7 +152,7 @@
                                     <label class="control-label">{{__("Background Photo")}}</label>
                                     <div>
                                         <button class="btn btn-primary form-control button-upload-file" >
-                                            <input class="input-file show-uploaded" data-upload-type="single" data-imgs-container-class="uploaded-background" type="file" name="background">
+                                            <input class="input-file show-uploaded" data-upload-type="single" data-imgs-container-class="uploaded-background" type="file" accept="image/png, image/gif, image/jpeg" name="background">
                                             <span class="upload-file-content">
                                                 <i class="fas fa-upload fa-lg upload-file-content-icon left"></i>
                                                 <span class="upload-file-content-text">{{__("Background")}}</span>
@@ -129,7 +178,7 @@
                                     <label class="control-label">{{__("Phone Photo")}}</label>
                                     <div>
                                         <button class="btn btn-primary form-control button-upload-file" >
-                                            <input class="input-file show-uploaded" data-upload-type="single" data-imgs-container-class="uploaded-images" type="file" name="phone">
+                                            <input class="input-file show-uploaded" data-upload-type="single" accept="image/png, image/gif, image/jpeg" data-imgs-container-class="uploaded-images" type="file" name="phone">
                                             <span class="upload-file-content">
                                                 <i class="fas fa-upload fa-lg upload-file-content-icon left"></i>
                                                 <span class="upload-file-content-text">{{__("Photo Phone")}}</span>
@@ -151,7 +200,7 @@
                         </div>
                         <div class="tile-footer">
                             <button  type="submit" class="btn btn-primary">
-                                <i class="fa fa-fw fa-lg fa-check-circle"></i> {{__("Create")}}
+                                <i class="fa fa-fw fa-lg fa-check-circle"></i> {{__("update")}}
                             </button>
                         </div>
                     </form>

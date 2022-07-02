@@ -19,6 +19,11 @@ class CreateDigisolAppsTable extends Migration
             $table->string('title_ar');
             $table->text('description_en')->nullable();
             $table->text('description_ar')->nullable();
+            $table->date('date')->nullable();
+            $table->text('link_web')->nullable();
+            $table->text('link_android')->nullable();
+            $table->text('link_ios')->nullable();
+            $table->text('link_huawei')->nullable();
             $table->timestamps();
         });
     }

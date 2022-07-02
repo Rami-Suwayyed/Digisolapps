@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="https://backend.teacher.digisolapps.com/assets/ostad-logo.svg">
+    <link rel="icon" href="{{asset("assets/Untitled.png")}}">
 
     <!-- Main CSS-->
 {{--    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">--}}

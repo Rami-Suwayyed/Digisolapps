@@ -161,7 +161,7 @@ Route::group(["middleware" => ['manager']],function (){
         Route::get("/show/{id}", "NotificationsController@ShowClear")->name("show.clear");
     });
 
-
+    Route::get("/email/verification", "ManagerController@VerificationEmail")->name("VerificationEmail");
     Route::get("/SendEmail/{id}", "ManagerController@SendEmail")->name("SendEmail");
 
 });

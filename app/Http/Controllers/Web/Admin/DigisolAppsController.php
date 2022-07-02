@@ -16,27 +16,22 @@ class DigisolAppsController extends Controller
     public function rules()
     {
         $rules = [
-            "name_en" => ["required", "max:255"],
-            "name_ar" => ["required", "max:255"],
+            "name_en"        => ["required", "max:255"],
+            "name_ar"        => ["required", "max:255"],
             "description_ar" => ["required"],
             "description_en" => ["required"],
-            "icon" => ["required"],
-            "background" => ["required"],
-            "phone" => ["required"],
+            "data"           => ["required"],
+            "icon"           => ["required"],
+            "background"     => ["required"],
+            "phone"          => ["required"],
+            "link_web"       =>  ["nullable" ,"url"],
+            "link_android"   =>  ["nullable" ,"url"],
+            "link_ios"       =>  ["nullable" ,"url"],
+            "link_huawei"    =>  ["nullable" ,"url"],
         ];
         return $rules;
     }
 
-    public function rulesUpdate()
-    {
-        $rules = [
-            "name_en" => ["required", "max:255"],
-            "name_ar" => ["required", "max:255"],
-            "description_ar" => ["required"],
-            "description_en" => ["required"],
-        ];
-        return $rules;
-    }
 
     public function index()
     {
@@ -54,6 +49,8 @@ class DigisolAppsController extends Controller
     public function store(Request $request)
     {
         $rules = $this->rules();
+
+
         $valid = Validator::make($request->all(), $rules);
         if($valid->fails()){
             return redirect()->route("admin.digisol.apps.create")->withInput($request->all())->withErrors($valid->errors()->messages());
@@ -63,6 +60,11 @@ class DigisolAppsController extends Controller
         $apps->name_ar = $request->name_ar;
         $apps->description_en = $request->description_en;
         $apps->description_ar = $request->description_ar;
+        $apps->link_web = $request->link_web ?? null;
+        $apps->link_android = $request->link_android ?? null;
+        $apps->link_ios = $request->link_ios ?? null;
+        $apps->link_huawei = $request->link_huawei ?? null;
+        $apps->data = $request->data;
         if($apps->save()){
             if($request->hasFile("icon")){
                 $apps->saveMedia($request->file("icon"), "icon");
@@ -97,15 +99,26 @@ class DigisolAppsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $valid = Validator::make($request->all(), $this->rulesUpdate());
+        $rules = $this->rules();
+        $rules["icon"]=[];
+        $rules["background"]=[];
+        $rules["phone"]=[];
+
+
+        $valid = Validator::make($request->all(), $rules);
         if($valid->fails()){
             return redirect()->route("admin.digisol.apps.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
         $app = DigisolApp::find($request->id);
         $app->name_en = $request->name_en;
         $app->name_ar = $request->name_ar;
-        $app->description_ar = $request->description_ar;
         $app->description_en = $request->description_en;
+        $app->description_ar = $request->description_ar;
+        $app->link_web = $request->link_web ?? null;
+        $app->link_android = $request->link_android ?? null;
+        $app->link_ios = $request->link_ios ?? null;
+        $app->link_huawei = $request->link_huawei ?? null;
+        $app->data = $request->data;
         $app->save();
         if($request->file("icon")){
             if($app->getFirstMediaFile("icon"))

@@ -29,7 +29,7 @@
             </li>
         @endif
         <!------------------------- notification -------------------------->
-        @if(hasPermissions("control-digisol"))
+        @if(hasPermissions("control-website-digisol"))
             <li class="treeview @if(request()->routeIs("admin.digisol*")) is-expanded @endif"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">{{__("Digisol")}}</span><i class="treeview-indicator fa @if(app()->getLocale() == "en") fa-angle-right @else fa-angle-left @endif"></i></a>
                 <ul class="treeview-menu">
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.index*")) active @endif" href="{{ route("admin.digisol.index") }}"><i class="icon fa fa-book"></i> {{__("Digisol")}}</a></li>

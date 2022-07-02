@@ -17,9 +17,9 @@
 @section("content")
 
     <div class="row">
-        @if(isPermissionsAllowed("control-digisol"))
+        @if(isPermissionsAllowed("control-website-digisol"))
             <div class="col-md-6 col-lg-3">
-                <a style="  text-decoration: none" href="">
+                <a style="  text-decoration: none" href="{{ route("admin.digisol.contact.index") }}">
                     <div class="widget-small warning coloured-icon"><i class="icon fa fa-envelope-open fa-3x"></i>
                         <div class="info">
                             <h4>{{__("Digisol ContactUs")}}</h4>
