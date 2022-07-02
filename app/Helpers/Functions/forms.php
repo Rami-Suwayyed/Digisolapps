@@ -11,6 +11,8 @@ function inputValue($key, $object = null, $attribute = null, $attribute_key = nu
 }
 
 
+
+
 function selected($key, $match, $object = null, $attribute = null){
     $result = '';
     if(request()->old($key) !== null && request()->old($key) == $match){
@@ -95,7 +97,17 @@ function checkedFromGroup($groupName, $key, $match, $object = null, $attribute =
     }
     return $result;
 }
-
+ function getImage($image){
+    switch ($image){
+        case "web":
+            $image = env("APP_URL") . "assets/internet.svg";
+            break;
+        case "test":
+            $image = env("APP_URL") . "/assets/img/user_avatar.jpg";
+            break;
+    }
+    return $image;
+ }
 
 function routex($route, $params = [])
 {

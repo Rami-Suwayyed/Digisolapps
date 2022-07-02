@@ -6,6 +6,7 @@ use App\Helpers\Dialog\Web\Dialog;
 use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
+use App\Helpers\Media\Src\MediaDefaultPhotos;
 use App\Http\Controllers\Controller;
 use App\Models\DigisolApp;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Validator;
 
 class DigisolAppsController extends Controller
 {
+    use MediaDefaultPhotos;
+
     public function rules()
     {
         $rules = [
@@ -42,7 +45,12 @@ class DigisolAppsController extends Controller
 
     public function create()
     {
-        return view("admin.digisol.apps.create");
+        $data['Web']=$this->defaultWebPhoto();
+        $data['Android']=$this->defaultAndroidPhoto();
+        $data['Ios']=$this->defaultIosPhoto();
+        $data['Huawei']=$this->defaultHuaweiPhoto();
+
+        return view("admin.digisol.apps.create", $data);
     }
 
 
@@ -85,6 +93,11 @@ class DigisolAppsController extends Controller
 
     public function edit(Request $request)
     {
+        $data['Web']=$this->defaultWebPhoto();
+        $data['Android']=$this->defaultAndroidPhoto();
+        $data['Ios']=$this->defaultIosPhoto();
+        $data['Huawei']=$this->defaultHuaweiPhoto();
+
         $data['app'] = DigisolApp::findOrFail($request->id);
         return view("admin.digisol.apps.edit", $data);
     }

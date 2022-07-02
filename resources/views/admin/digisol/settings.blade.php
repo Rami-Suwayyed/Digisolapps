@@ -35,11 +35,6 @@
                                         <label for=""> {{__('Whatsapp')}}</label>
                                         <input type="text" name="whatsapp" class="form-control" value="{{$platForm->whatsapp}}"/>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for=""> {{__('Whatsapp')}}</label>
-                                        <input type="text" name="whatsapp" class="form-control" value="{{$platForm->whatsapp}}"/>
-                                    </div>
                                 </div>
                             </div>
                         <div class="tile-footer">

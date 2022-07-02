@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label">{{__("Link Web")}}</label>
+                                    <label class="control-label"><img src="{{asset($Web)}}" alt="" width="20" >{{__("Link Web")}}</label>
                                     <input class="form-control @if($errors->has('link_web')) is-invalid @endif" type="text" name="link_web" placeholder="{{__("Enter Link Web")}}" value="{{inputValue("link_web")}}">
                                 </div>
                                 @error("link_web")
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label">{{__("Link Android")}}</label>
+                                    <label class="control-label">  <img src="{{asset($Android)}}" alt="" width="20" >{{__("Link Android")}}</label>
                                     <input class="form-control @if($errors->has('link_android')) is-invalid @endif" type="text" name="link_android" placeholder="{{__("Enter Link Android")}}" value="{{inputValue("link_android")}}">
                                 </div>
                                 @error("link_android")
@@ -92,7 +92,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label">{{__("English Link Ios")}}</label>
+                                    <label class="control-label"><img src="{{asset($Ios)}}" alt="" width="20" >{{__("English Link Ios")}}</label>
                                     <input class="form-control @if($errors->has('link_ios')) is-invalid @endif" type="text" name="link_ios" placeholder="{{__("Enter Link Ios")}}" value="{{inputValue("link_ios")}}">
                                 </div>
                                 @error("link_ios")
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label">{{__("Link Huawei")}}</label>
+                                    <label class="control-label"><img src="{{asset($Huawei)}}" alt="" width="20" >{{__("Link Huawei")}}</label>
                                     <input class="form-control @if($errors->has('link_huawei')) is-invalid @endif" type="text" name="link_huawei" placeholder="{{__("Enter Link Huawei")}}" value="{{inputValue("link_huawei")}}">
                                 </div>
                                 @error("link_huawei")
