@@ -32,7 +32,17 @@
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.home.title.index")}}">
                                 <div class="widget-small primary coloured-icon"><i class="icon fa fa-user fa-3x"></i>
                                     <div class="info">
-                                        <h4>{{__('Title')}}</h4>
+                                        <h4>{{__('first paragraph')}}</h4>
+                                        <p><b id="users"></b></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <a style="  text-decoration: none"  href="{{route("admin.digisol.home.SecondParagraph.index")}}">
+                                <div class="widget-small primary coloured-icon"><i class="icon fa fa-user fa-3x"></i>
+                                    <div class="info">
+                                        <h4>{{__('Second Paragraph')}}</h4>
                                         <p><b id="users"></b></p>
                                     </div>
                                 </div>

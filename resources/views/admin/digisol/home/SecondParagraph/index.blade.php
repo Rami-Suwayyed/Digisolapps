@@ -5,14 +5,14 @@
 @section("page-nav-title")
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i>{{__("Website Digisol Home first paragraph")}}</h1>
-            <p>{{__(" Digisol Home first paragraph")}}</p>
+            <h1><i class="fa fa-dashboard"></i>{{__("Website Digisol Home Second Paragraph")}}</h1>
+            <p>{{__(" Digisol Home Second Paragraph")}}</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
             <li class="breadcrumb-item"><a href="#">{{__("Dashboard")}}</a></li>
             <li class="breadcrumb-item"><a href="#">{{__("Digisol")}}</a></li>
-            <li class="breadcrumb-item"><a href="#">{{__("first paragraph")}}</a></li>
+            <li class="breadcrumb-item"><a href="#">{{__("Second Paragraph")}}</a></li>
         </ul>
     </div>
 @endsection
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="buttons-group">
-               <a href="{{route("admin.digisol.home.title.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Website Title')}}</a>
+               <a href="{{route("admin.digisol.home.SecondParagraph.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Website Title')}}</a>
             </div>
             <div class="tile">
                 <div class="tile-body">
@@ -38,15 +38,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($homeTitles as $homeTitle)
+                            @foreach($Paragraphs as $Paragraph)
                                 <tr>
-                                    <td>{{$homeTitle->id}}</td>
-                                    <td>{{$homeTitle->getTitleAttribute()}}</td>
-                                    <th>{{$homeTitle->getDescriptionAttribute()}}</th>
+                                    <td>{{$Paragraph->id}}</td>
+                                    <td>{{$Paragraph->getTitleAttribute()}}</td>
+                                    <th>{{$Paragraph->getDescriptionAttribute()}}</th>
                                     <td>
-                                        <a href="{{route("admin.digisol.home.title.edit", ["id" => $homeTitle->id])}}" class="control-link edit"><i class="fas fa-edit"></i></a>
-                                        <form action="{{route("admin.digisol.home.title.destroy", $homeTitle->id)}}" method="post" id="delete{{$homeTitle->id}}" style="display: none" data-swal-title="{{__("Delete How To Order")}}" data-swal-text="{{__("Are Your Sure To Delete This How To Order ?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__('the How To Order has been deleted successfully')}}">@csrf @method("delete")</form>
-                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$homeTitle->id}}"><i class="far fa-trash-alt"></i></span>
+                                        <a href="{{route("admin.digisol.home.SecondParagraph.edit", ["id" => $Paragraph->id])}}" class="control-link edit"><i class="fas fa-edit"></i></a>
+                                        <form action="{{route("admin.digisol.home.SecondParagraph.destroy", $Paragraph->id)}}" method="post" id="delete{{$Paragraph->id}}" style="display: none" data-swal-title="{{__("Delete How To Order")}}" data-swal-text="{{__("Are Your Sure To Delete This How To Order ?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__('the How To Order has been deleted successfully')}}">@csrf @method("delete")</form>
+                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$Paragraph->id}}"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                             @endforeach

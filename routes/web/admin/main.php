@@ -83,6 +83,15 @@ Route::group(["middleware" => ['manager']],function (){
                 Route::post("/{id}", "DigisolHomeController@updateTitle")->name("update");
                 Route::delete("/{id}", "DigisolHomeController@destroyTitle")->name("destroy");
             });
+                //SecondParagraph Route
+                Route::prefix("/SecondParagraph")->name("SecondParagraph.")->group(function (){
+                    Route::get("/", "DigisolHomeController@indexSecondParagraph")->name("index");
+                    Route::get("/create", "DigisolHomeController@CreateSecondParagraph")->name("create");
+                    Route::post("/", "DigisolHomeController@storeSecondParagraph")->name("store");
+                    Route::get("/{id}", "DigisolHomeController@editSecondParagraph")->name("edit");
+                    Route::post("/{id}", "DigisolHomeController@updateSecondParagraph")->name("update");
+                    Route::delete("/{id}", "DigisolHomeController@destroySecondParagraph")->name("destroy");
+                });
                //Testimonials Route
                Route::prefix("/body")->name("body.")->group(function (){
                 Route::get("/", "DigisolHomeController@indexBody")->name("index");

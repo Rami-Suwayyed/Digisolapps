@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDigisolAppsTable extends Migration
+class CreateDigisolSecondParagraphsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateDigisolAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('digisol_apps', function (Blueprint $table) {
+        Schema::create('digisol_second_paragraphs', function (Blueprint $table) {
             $table->id();
-            $table->string('title_en');
-            $table->string('title_ar');
+            $table->string('name_en');
+            $table->string('name_ar');
+            $table->date('data');
+            $table->text('link');
             $table->text('description_en')->nullable();
             $table->text('description_ar')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateDigisolAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('digisol_apps');
+        Schema::dropIfExists('digisol_second_paragraphs');
     }
 }

@@ -5,6 +5,7 @@ use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Http\Controllers\Controller;
+use App\Models\DigisolSecondParagraph;
 use App\Models\HomeTestimonial;
 use App\Models\HomeTitle;
 use Illuminate\Http\Request;
@@ -113,6 +114,87 @@ class DigisolHomeController extends Controller
         Dialog::flashing($message);
         return redirect()->route("admin.digisol.home.title.index");
     }
+
+
+
+    public function indexSecondParagraph()
+    {
+        $data['Paragraphs'] = DigisolSecondParagraph::all();
+        return view("admin.digisol.home.SecondParagraph.index", $data);
+    }
+
+    public function CreateSecondParagraph()
+    {
+        $Paragraph = DigisolSecondParagraph::all();
+        if(!$Paragraph->isEmpty()){
+            $message = (new WarningMessage())->title("Cannot")
+                ->body("Cannot be added Website Second Paragraph");
+            Dialog::flashing($message);
+            return redirect()->route("admin.digisol.home.SecondParagraph.index");
+        }
+        return view("admin.digisol.home.SecondParagraph.create");
+    }
+
+
+    public function storeSecondParagraph(Request $request)
+    {
+        $rules = $this->rules();
+        $valid = Validator::make($request->all(), $rules);
+        if($valid->fails()){
+            return redirect()->route("admin.digisol.home.SecondParagraph.create")->withInput($request->all())->withErrors($valid->errors()->messages());
+        }
+        $Paragraph = new DigisolSecondParagraph();
+        $Paragraph->title_ar = $request->title_ar;
+        $Paragraph->title_en = $request->title_en;
+        $Paragraph->description_en = $request->description_en;
+        $Paragraph->description_ar = $request->description_ar;
+        $Paragraph->save();
+        $message = (new SuccessMessage())->title("Create Successfully")
+            ->body("The Website SecondParagraph Has Been Create Successfully");
+        Dialog::flashing($message);
+        return redirect()->route("admin.digisol.home.SecondParagraph.index");
+    }
+
+    public function editSecondParagraph(Request $request)
+    {
+        $data['Paragraph'] = DigisolSecondParagraph::findOrFail($request->id);
+        return view("admin.digisol.home.SecondParagraph.edit", $data);
+    }
+
+
+    public function updateSecondParagraph(Request $request, $id)
+    {
+        $valid = Validator::make($request->all(), $this->rules());
+        if($valid->fails()){
+            return redirect()->route("admin.digisol.home.SecondParagraph.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
+        }
+        $Paragraph = DigisolSecondParagraph::find($request->id);
+        $Paragraph->title_ar = $request->title_ar;
+        $Paragraph->title_en = $request->title_en;
+        $Paragraph->description_ar = $request->description_ar;
+        $Paragraph->description_en = $request->description_en;
+        $Paragraph->save();
+        $message = (new SuccessMessage())->title("Updated Successfully")
+            ->body("The Website Second Paragraph Has Been Updated Successfully");
+        Dialog::flashing($message);
+        return redirect()->route("admin.digisol.home.SecondParagraph.index");
+    }
+
+
+    public function destroySecondParagraph(Request $request)
+    {
+        $Paragraph = DigisolSecondParagraph::find($request->id);
+        $Paragraph->delete();
+        $message = (new DangerMessage())->title("Deleted Successfully")
+            ->body("The Website Second Paragraph Has Been Deleted Successfully");
+        Dialog::flashing($message);
+        return redirect()->route("admin.digisol.home.SecondParagraph.index");
+    }
+
+
+
+
+
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Testimonials >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

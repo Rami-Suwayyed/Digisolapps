@@ -133,7 +133,7 @@ class ManagerController extends Controller
     public function VerificationEmail(){
         $admin =Auth::user();
         $admin->email_verified_at = now();
-        $adminnew = $admin->save();
+        $admin->save();
         return redirect()->route("admin.dashboard.index");
 
     }
