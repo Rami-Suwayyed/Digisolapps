@@ -33,7 +33,15 @@
                                 <div class="col-12 pt-3">
                                     <div class="form-group">
                                         <label for=""> {{__('Whatsapp')}}</label>
-                                        <input type="text" name="whatsapp" class="form-control" value="{{$platForm->whatsapp}}"/>
+                                        <input type="text" name="whatsapp" class="form-control" value="{{$general->whatsapp}}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=""> {{__('SoS_whatsapp')}}</label>
+                                        <input type="text" name="SoS_whatsapp" class="form-control" value="{{$general->SoS_whatsapp}}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=""> {{__('SoS_Phone')}}</label>
+                                        <input type="text" name="SoS_Phone" class="form-control" value="{{$general->SoS_Phone}}"/>
                                     </div>
                                 </div>
                             </div>

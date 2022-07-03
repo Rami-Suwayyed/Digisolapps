@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AppUrl;
+use App\Models\DigisolSetting;
 use App\Models\GeneralSettings;
 use App\Repositories\SettingsRepository;
 use Illuminate\Http\Request;
@@ -19,8 +20,7 @@ class DigisolSettingsController extends Controller
     public function index(Request $request){
         $this->permissionsAllowed("control-settings");
 
-        $data["general"] = GeneralSettings::first();
-        $data['platForm'] = AppUrl::first();
+        $data["general"] = DigisolSetting::first();
         return view("admin.digisol.settings", $data);
     }
 
