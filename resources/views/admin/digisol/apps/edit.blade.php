@@ -119,6 +119,19 @@
                                 <div class="input-error">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{__("Category Apps")}}</label>
+                                    <select name="category" class="custom-select form-control-border" id="exampleSelectBorder">
+                                        @foreach($Categorise as $Category)
+                                            <option value="{{ $Category->id }}" {{ ($Category->id == $app->category_id) ? "selected": " "}}>{{ $Category->getNameAttribute() }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error("data")
+                                <div class="input-error">{{$message}}</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">

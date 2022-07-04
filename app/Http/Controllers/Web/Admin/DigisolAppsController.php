@@ -8,6 +8,7 @@ use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Helpers\Media\Src\MediaDefaultPhotos;
 use App\Http\Controllers\Controller;
+use App\Models\CategoryApps;
 use App\Models\DigisolApp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -50,6 +51,9 @@ class DigisolAppsController extends Controller
         $data['Ios']=$this->defaultIosPhoto();
         $data['Huawei']=$this->defaultHuaweiPhoto();
 
+        $data['Categorise'] = CategoryApps::where('status',1)->orderBy("order", "asc")->get();
+
+
         return view("admin.digisol.apps.create", $data);
     }
 
@@ -73,6 +77,7 @@ class DigisolAppsController extends Controller
         $apps->link_ios = $request->link_ios ?? null;
         $apps->link_huawei = $request->link_huawei ?? null;
         $apps->data = $request->data;
+        $apps->category_id = $request->category;
         if($apps->save()){
             if($request->hasFile("icon")){
                 $apps->saveMedia($request->file("icon"), "icon");
@@ -99,6 +104,7 @@ class DigisolAppsController extends Controller
         $data['Huawei']=$this->defaultHuaweiPhoto();
 
         $data['app'] = DigisolApp::findOrFail($request->id);
+        $data['Categorise'] = CategoryApps::where('status',1)->orderBy("order", "asc")->get();
         return view("admin.digisol.apps.edit", $data);
     }
 
@@ -132,6 +138,7 @@ class DigisolAppsController extends Controller
         $app->link_ios = $request->link_ios ?? null;
         $app->link_huawei = $request->link_huawei ?? null;
         $app->data = $request->data;
+        $app->category_id = $request->category;
         $app->save();
         if($request->file("icon")){
             if($app->getFirstMediaFile("icon"))

@@ -32,6 +32,7 @@ class DigisolAppResource extends JsonResource
         // }
         $data = [
             "id"                   => $this->id,
+            "Category"                 => $this->Category->getNameAttribute(),
             "name"                 => $this->getNameAttribute(),
             "Description"          => $this->getDescriptionAttribute(),
             "image-icon"            => $this->getFirstMediaFile("icon") ? $this->getFirstMediaFile("icon")->url : null,

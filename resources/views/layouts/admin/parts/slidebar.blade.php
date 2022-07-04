@@ -28,12 +28,16 @@
                 </ul>
             </li>
         @endif
+        @if(isPermissionsAllowed("view-control-categories-apps"))
+            <li><a class="app-menu__item @if(request()->routeIs("admin.category_apps.*")) active @endif" href="{{route("admin.category_apps.index")}}"><i class="app-menu__icon fas fa-list"></i><span class="app-menu__label">{{__("Categories Apps ")}}</span></a></li>
+        @endif
         <!------------------------- notification -------------------------->
         @if(hasPermissions("control-website-digisol"))
             <li class="treeview @if(request()->routeIs("admin.digisol*")) is-expanded @endif"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">{{__("Digisol")}}</span><i class="treeview-indicator fa @if(app()->getLocale() == "en") fa-angle-right @else fa-angle-left @endif"></i></a>
                 <ul class="treeview-menu">
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.index*")) active @endif" href="{{ route("admin.digisol.index") }}"><i class="icon fa fa-book"></i> {{__("Digisol")}}</a></li>
                      <li><a class="treeview-item @if(request()->routeIs("admin.digisol.home*")) active @endif" href="{{ route("admin.digisol.home.index") }}"><i class="icon fa fa-archive"></i> {{__("Home")}}</a></li>
+                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.about*")) active @endif" href="{{ route("admin.digisol.about.index") }}"><i class="icon fa fa-exclamation"></i> {{__("About")}}</a></li>
                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.social*")) active @endif" href="{{ route("admin.digisol.social.index") }}"><i class="icon fa fa-fire"></i> {{__("Social Media")}}</a></li>
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.contact*")) active @endif" href="{{ route("admin.digisol.contact.index") }}"><i class="icon fa fa-envelope"></i> {{__("Contact Us")}}</a></li>
                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.settings*")) active @endif" href="{{ route("admin.digisol.settings.index") }}"><i class="icon fa fa-wrench"></i> {{__("Digisol settings")}}</a></li>

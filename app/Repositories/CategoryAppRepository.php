@@ -2,18 +2,17 @@
 
 namespace App\Repositories;
 
-use App\Models\MainCategory;
-use App\Models\Order;
+use App\Models\CategoryApps;
 
-class MainCategoryRepository
+class CategoryAppRepository
 {
 
     public function getAllWithSort(){
-        return MainCategory::where('status',1)->orderBy("order", "asc")->get();
+        return CategoryApps::where('status',1)->orderBy("order", "asc")->get();
     }
 
     public function getById($id){
-        return MainCategory::findOrFail($id);
+        return CategoryApps::findOrFail($id);
     }
 
     public function delete($mainCategory){
@@ -22,11 +21,6 @@ class MainCategoryRepository
                 (new SubCategoryRepository())->delete($sub);
         $mainCategory->removeAllFiles();
         $mainCategory->delete();
-    }
-
-
-    public function getAllOrderWithSort(){
-        return Order::where('status',2)->get();
     }
 
 

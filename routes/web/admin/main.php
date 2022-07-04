@@ -138,6 +138,51 @@ Route::group(["middleware" => ['manager']],function (){
         Route::put("/{id}","DigisolAppsController@update")->name("update");
         Route::delete("/{id}","DigisolAppsController@destroy")->name("destroy");
     });
+        Route::prefix("/about")->name("about.")->group(function (){
+            Route::get("/", "DigisolAboutController@index")->name("index");
+
+            //title Route
+            Route::prefix("/first")->name("first.")->group(function (){
+                Route::get("/", "DigisolAboutController@indexFirst")->name("index");
+                Route::get("/create", "DigisolAboutController@CreateFirst")->name("create");
+                Route::post("/", "DigisolAboutController@storeFirst")->name("store");
+                Route::get("/{id}", "DigisolAboutController@editFirst")->name("edit");
+                Route::post("/{id}", "DigisolAboutController@updateFirst")->name("update");
+                Route::delete("/{id}", "DigisolAboutController@destroyFirst")->name("destroy");
+            });
+            //SecondParagraph Route
+            Route::prefix("/secondParagraph")->name("second.")->group(function (){
+                Route::get("/", "DigisolAboutController@indexSecond")->name("index");
+                Route::get("/create", "DigisolAboutController@CreateSecond")->name("create");
+                Route::post("/", "DigisolAboutController@storeSecond")->name("store");
+                Route::get("/{id}", "DigisolAboutController@editSecond")->name("edit");
+                Route::post("/{id}", "DigisolAboutController@updateSecond")->name("update");
+                Route::delete("/{id}", "DigisolAboutController@destroySecond")->name("destroy");
+            });
+            //Testimonials Route
+            Route::prefix("/third")->name("third.")->group(function (){
+                Route::get("/", "DigisolAboutController@indexThird")->name("index");
+                Route::get("/create", "DigisolAboutController@CreateThird")->name("create");
+                Route::post("/", "DigisolAboutController@storeThird")->name("store");
+                Route::get("/{id}", "DigisolAboutController@editThird")->name("edit");
+                Route::post("/{id}", "DigisolAboutController@updateThird")->name("update");
+                Route::delete("/{id}", "DigisolAboutController@destroyThird")->name("destroy");
+            });
+
+            //Testimonials Route
+            Route::prefix("/fourth")->name("fourth.")->group(function (){
+                Route::get("/", "DigisolAboutController@indexFourth")->name("index");
+                Route::get("/create", "DigisolAboutController@CreateFourth")->name("create");
+                Route::post("/", "DigisolAboutController@storeFourth")->name("store");
+                Route::get("/{id}", "DigisolAboutController@editFourth")->name("edit");
+                Route::post("/{id}", "DigisolAboutController@updateFourth")->name("update");
+                Route::delete("/{id}", "DigisolAboutController@destroyFourth")->name("destroy");
+            });
+        });
+
+
+
+
 
         Route::prefix("Services")->name("Services.")->group(function (){
             Route::get("/","WebsiteHowWeWorkController@index")->name("index");
@@ -151,7 +196,18 @@ Route::group(["middleware" => ['manager']],function (){
 
     });
 
-    Route::prefix("Notification")->name("Notification.")->group(function () {
+    Route::prefix("category_apps")->name("category_apps.")->group(function (){
+            Route::get("/all/{page?}","CategoryAppsController@index")->name("index");
+            Route::get("/create","CategoryAppsController@create")->name("create");
+            Route::post("/","CategoryAppsController@store")->name("store");
+            Route::get("/edit/{id}","CategoryAppsController@edit")->name("edit");
+            Route::put("/{id}","CategoryAppsController@update")->name("update");
+            Route::delete("/{id}","CategoryAppsController@destroy")->name("destroy");
+            Route::post("/sort","CategoryAppsController@sort")->name("sort");
+        });
+
+
+        Route::prefix("Notification")->name("Notification.")->group(function () {
         Route::get("/SendForCustom", "NotificationsController@ShowSendForCustom")->name("SendForCustom");
         Route::get("/SendForAll", "NotificationsController@ShowSendForAll")->name("SendForAll");
         Route::get("/sendForService", "NotificationsController@ShowForService")->name("SendForService");

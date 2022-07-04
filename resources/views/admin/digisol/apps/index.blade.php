@@ -35,11 +35,13 @@
                                     <img class="card-img-top" src="{{  $app->getFirstMediaFile("icon")->url}}"  alt="{{$app->getNameAttribute()}}">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$app->id}} - {{$app->getNameAttribute()}}</h5>
+                                        <p>{{$app->Category->getNameAttribute()}}</p>
                                         <p class="card-text">{{ \Illuminate\Support\Str::limit($app->getDescriptionAttribute(), 50, '...') }}</p>
-                                        <a href="{{route("admin.digisol.apps.show", ["id" => $app->id])}}" class="btn btn-primary"><i class="fa fa-eye"></i> {{'View'}}</a>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">
+                                            <a href="{{route("admin.digisol.apps.show", ["id" => $app->id])}}"><i class="fa fa-eye"></i> {{'View'}}</a>
+
                                             <a href="{{route("admin.digisol.apps.edit", ["id" => $app->id])}}" class="control-link edit"><i class="fas fa-edit"></i></a>
                                             <form action="{{route("admin.digisol.apps.destroy", $app->id)}}" method="post" id="delete{{$app->id}}" style="display: none" data-swal-title="{{__("Delete App")}}" data-swal-text="{{__("Are Your Sure To Delete This App ?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__('the App has been deleted successfully')}}">@csrf @method("delete")</form>
                                             <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$app->id}}"><i class="far fa-trash-alt"></i></span>

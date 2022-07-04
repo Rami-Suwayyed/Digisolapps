@@ -37,5 +37,8 @@ class DigisolApp extends Model  implements IMedia
         return $this->{"description_" . App::getLocale()};
     }
 
+    public function Category(){
+        return $this->belongsTo(CategoryApps::class, "category_id");
+    }
 
 }
