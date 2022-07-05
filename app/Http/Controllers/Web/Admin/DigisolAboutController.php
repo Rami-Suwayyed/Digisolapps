@@ -5,6 +5,7 @@ use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Http\Controllers\Controller;
+use App\Models\DigisolAboutFourthP;
 use App\Models\DigisolAboutSecondP;
 use App\Models\DigisolAboutThirdP;
 use App\Models\HomeTestimonial;
@@ -82,7 +83,7 @@ class DigisolAboutController extends Controller
 
     public function editFirst(Request $request)
     {
-        $data['FirstP'] = DigisolAboutFirstP::findOrFail($request->id);
+        $data['First'] = DigisolAboutFirstP::findOrFail($request->id);
         return view("admin.digisol.about.first.edit", $data);
     }
 
@@ -275,20 +276,13 @@ class DigisolAboutController extends Controller
 
     public function indexFourth()
     {
-        $data['thirds'] = DigisolAboutThirdP::all();
-        return view("admin.digisol.about.third.index", $data);
+        $data['fourths'] = DigisolAboutFourthP::all();
+        return view("admin.digisol.about.fourth.index", $data);
     }
 
     public function CreateFourth()
     {
-        $Paragraph = DigisolAboutThirdP::all();
-        if(!$Paragraph->isEmpty()){
-            $message = (new WarningMessage())->title("Cannot")
-                ->body("Cannot be added Website third Paragraph");
-            Dialog::flashing($message);
-            return redirect()->route("admin.digisol.about.third.index");
-        }
-        return view("admin.digisol.about.third.create");
+        return view("admin.digisol.about.fourth.create");
     }
 
 
@@ -297,24 +291,24 @@ class DigisolAboutController extends Controller
         $rules = $this->rules();
         $valid = Validator::make($request->all(), $rules);
         if($valid->fails()){
-            return redirect()->route("admin.digisol.about.third.create")->withInput($request->all())->withErrors($valid->errors()->messages());
+            return redirect()->route("admin.digisol.about.fourth.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $Paragraph = new DigisolAboutThirdP();
+        $Paragraph = new DigisolAboutFourthP();
         $Paragraph->title_ar = $request->title_ar;
         $Paragraph->title_en = $request->title_en;
         $Paragraph->description_en = $request->description_en;
         $Paragraph->description_ar = $request->description_ar;
         $Paragraph->save();
         $message = (new SuccessMessage())->title("Create Successfully")
-            ->body("The Website SecondParagraph Has Been Create Successfully");
+            ->body("The Website fourth Paragraph Has Been Create Successfully");
         Dialog::flashing($message);
-        return redirect()->route("admin.digisol.about.third.index");
+        return redirect()->route("admin.digisol.about.fourth.index");
     }
 
     public function editFourth(Request $request)
     {
-        $data['third'] = DigisolAboutThirdP::findOrFail($request->id);
-        return view("admin.digisol.about.third.edit", $data);
+        $data['fourth'] = DigisolAboutFourthP::findOrFail($request->id);
+        return view("admin.digisol.about.fourth.edit", $data);
     }
 
 
@@ -322,29 +316,29 @@ class DigisolAboutController extends Controller
     {
         $valid = Validator::make($request->all(), $this->rules());
         if($valid->fails()){
-            return redirect()->route("admin.digisol.about.third.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
+            return redirect()->route("admin.digisol.about.fourth.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $Paragraph = DigisolAboutThirdP::find($request->id);
+        $Paragraph = DigisolAboutFourthP::find($request->id);
         $Paragraph->title_ar = $request->title_ar;
         $Paragraph->title_en = $request->title_en;
         $Paragraph->description_ar = $request->description_ar;
         $Paragraph->description_en = $request->description_en;
         $Paragraph->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
-            ->body("The Website Second Paragraph Has Been Updated Successfully");
+            ->body("The Website fourth Paragraph Has Been Updated Successfully");
         Dialog::flashing($message);
-        return redirect()->route("admin.digisol.about.third.index");
+        return redirect()->route("admin.digisol.about.fourth.index");
     }
 
 
     public function destroyFourth(Request $request)
     {
-        $Paragraph = DigisolAboutThirdP::find($request->id);
+        $Paragraph = DigisolAboutFourthP::find($request->id);
         $Paragraph->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
-            ->body("The Website Second Paragraph Has Been Deleted Successfully");
+            ->body("The Website fourth Paragraph Has Been Deleted Successfully");
         Dialog::flashing($message);
-        return redirect()->route("admin.digisol.about.third.index");
+        return redirect()->route("admin.digisol.about.fourth.index");
     }
 
 

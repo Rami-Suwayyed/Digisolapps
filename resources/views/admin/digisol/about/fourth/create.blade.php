@@ -6,7 +6,7 @@
     <div class="app-title">
         <div>
             <h1> {{__("third Paragraph")}}</h1>
-            <p>{{__("Create third Paragraph")}}</p>
+            <p>{{__("Create fourth Paragraph")}}</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -27,9 +27,9 @@
     <div class="row">
         <div class="col-lg-10 m-auto">
             <div class="tile">
-                <h3 class="tile-title">{{__("Create New third Paragraph")}}</h3>
+                <h3 class="tile-title">{{__("Create New fourth Paragraph")}}</h3>
                 <div class="tile-body">
-                    <form method="post" action="{{route("admin.digisol.about.third.store")}}">
+                    <form method="post" action="{{route("admin.digisol.about.fourth.store")}}">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">

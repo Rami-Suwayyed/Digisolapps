@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.about.first.index")}}">
-                                <div class="widget-small warning coloured-icon"><i class="icon fas fa-list-ul fa-3x"></i>
+                                <div class="widget-small warning coloured-icon"><i class="icon fa fa-battery-quarter fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('first paragraph')}}</h4>
                                         <p><b id="subjects"></b></p>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.about.second.index")}}">
-                                <div class="widget-small warning coloured-icon"><i class="icon fas fa-list-ul fa-3x"></i>
+                                <div class="widget-small warning coloured-icon"><i class="icon fa fa-battery-half fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('Second Paragraph')}}</h4>
                                         <p><b id="subjects"></b></p>
@@ -46,9 +46,19 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.about.third.index")}}">
-                                <div class="widget-small warning coloured-icon"><i class="icon fas fa-list-ul fa-3x"></i>
+                                <div class="widget-small warning coloured-icon"><i class="icon fa fa-battery-three-quarters fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('third Paragraph')}}</h4>
+                                        <p><b id="subjects"></b></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <a style="  text-decoration: none"  href="{{route("admin.digisol.about.fourth.index")}}">
+                                <div class="widget-small warning coloured-icon"><i class="icon fa fa-battery-full fa-3x"></i>
+                                    <div class="info">
+                                        <h4>{{__('fourth Paragraph')}}</h4>
                                         <p><b id="subjects"></b></p>
                                     </div>
                                 </div>
