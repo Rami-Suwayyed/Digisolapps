@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
 class AboutAs extends Model implements IMedia
 {
     use HasFactory, MediaInitialization;
-    protected $table="about_as";
+    protected $table="about_us";
     protected $fillable = ["about_en", "about_ar"];
     protected $hidden = ["about_en", "about_ar"];
     protected $appends = ["about"];

@@ -31,7 +31,7 @@ class AboutAsController extends Controller
     public function index()
     {
         $data['abouts'] = AboutAs::all();
-        return view("admin.about_as.index", $data);
+        return view("admin.about_us.index", $data);
     }
 
 
@@ -44,7 +44,7 @@ class AboutAsController extends Controller
             Dialog::flashing($message);
             return redirect()->route("admin.about.index");
         }
-        return view("admin.about_as.create");
+        return view("admin.about_us.create");
     }
 
 
@@ -71,7 +71,7 @@ class AboutAsController extends Controller
     public function edit(Request $request)
     {
         $data['about'] = AboutAs::find($request->id);
-        return view("admin.about_as.edit", $data);
+        return view("admin.about_us.edit", $data);
     }
 
 
