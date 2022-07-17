@@ -181,17 +181,39 @@ Route::group(["middleware" => ['manager']],function (){
         });
 
 
+        Route::prefix("/Services")->name("Services.")->group(function (){
+            Route::get("/", "DigisolServicesController@index")->name("index");
 
-
-
-        Route::prefix("Services")->name("Services.")->group(function (){
-            Route::get("/","WebsiteHowWeWorkController@index")->name("index");
-            Route::get("/create", "WebsiteHowWeWorkController@create")->name("create");
-            Route::post("/","WebsiteHowWeWorkController@store")->name("store");
-            Route::get("/{id}","WebsiteHowWeWorkController@edit")->name("edit");
-            Route::put("/{id}","WebsiteHowWeWorkController@update")->name("update");
-            Route::delete("/{id}","WebsiteHowWeWorkController@destroy")->name("destroy");
+            //title Route
+            Route::prefix("/mobile")->name("mobile.")->group(function (){
+                Route::get("/", "DigisolServicesController@indexMobile")->name("index");
+                Route::get("/create", "DigisolServicesController@CreateMobile")->name("create");
+                Route::post("/", "DigisolServicesController@StoreMobile")->name("store");
+                Route::get("/{id}", "DigisolServicesController@EditMobile")->name("edit");
+                Route::post("/{id}", "DigisolServicesController@UpdateMobile")->name("update");
+                Route::delete("/{id}", "DigisolServicesController@DestroyMobile")->name("destroy");
+            });
+            //SecondParagraph Route
+            Route::prefix("/web")->name("Web.")->group(function (){
+                Route::get("/", "DigisolServicesController@indexWeb")->name("index");
+                Route::get("/create", "DigisolServicesController@CreateWeb")->name("create");
+                Route::post("/", "DigisolServicesController@storeWeb")->name("store");
+                Route::get("/{id}", "DigisolServicesController@editWeb")->name("edit");
+                Route::post("/{id}", "DigisolServicesController@UpdateWeb")->name("update");
+                Route::delete("/{id}", "DigisolServicesController@destroyWeb")->name("destroy");
+            });
+            //Testimonials Route
+            Route::prefix("/market")->name("market.")->group(function (){
+                Route::get("/", "DigisolServicesController@indexMarket")->name("index");
+                Route::get("/create", "DigisolServicesController@CreateMarket")->name("create");
+                Route::post("/", "DigisolServicesController@storeMarket")->name("store");
+                Route::get("/{id}", "DigisolServicesController@editMarket")->name("edit");
+                Route::post("/{id}", "DigisolServicesController@UpdateMarket")->name("update");
+                Route::delete("/{id}", "DigisolServicesController@destroyMarket")->name("destroy");
+            });
         });
+
+
 
 
     });

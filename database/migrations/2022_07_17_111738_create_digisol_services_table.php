@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDigisolAboutUsTable extends Migration
+class CreateDigisolServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDigisolAboutUsTable extends Migration
      */
     public function up()
     {
-        Schema::create('digisol_about_us', function (Blueprint $table) {
+        Schema::create('digisol_services', function (Blueprint $table) {
             $table->id();
             $table->string('title_en');
             $table->string('title_ar');
@@ -32,6 +32,6 @@ class CreateDigisolAboutUsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('digisol_about_first_p_s');
+        Schema::dropIfExists('digisol_services');
     }
 }

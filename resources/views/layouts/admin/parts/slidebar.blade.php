@@ -40,6 +40,7 @@
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.about*")) active @endif" href="{{ route("admin.digisol.about.index") }}"><i class="icon fa fa-exclamation"></i> {{__("About")}}</a></li>
                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.social*")) active @endif" href="{{ route("admin.digisol.social.index") }}"><i class="icon fa fa-fire"></i> {{__("Social Media")}}</a></li>
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.contact*")) active @endif" href="{{ route("admin.digisol.contact.index") }}"><i class="icon fa fa-envelope"></i> {{__("Contact Us")}}</a></li>
+                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.Services*")) active @endif" href="{{ route("admin.digisol.Services.index") }}"><i class="icon fa fa-code-fork"></i> {{__("Digisol Services")}}</a></li>
                    <li><a class="treeview-item @if(request()->routeIs("admin.digisol.settings*")) active @endif" href="{{ route("admin.digisol.settings.index") }}"><i class="icon fa fa-wrench"></i> {{__("Digisol settings")}}</a></li>
                     <li><a class="treeview-item @if(request()->routeIs("admin.digisol.apps*")) active @endif" href="{{ route("admin.digisol.apps.index") }}"><i class="icon fa fa-audio-description"></i> {{__("Digisol Apps")}}</a></li>
                 </ul>

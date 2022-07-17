@@ -4,9 +4,6 @@ namespace App\Repositories;
 use App\Models\AppUrl;
 use App\Models\DigisolSetting;
 use App\Models\GeneralSettings;
-use App\Models\LocationZone;
-use App\Models\PaymentMethod;
-use App\Models\ZoneConfiguration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
