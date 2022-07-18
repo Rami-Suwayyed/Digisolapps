@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.home.title.index")}}">
-                                <div class="widget-small primary coloured-icon"><i class="icon fa fa-user fa-3x"></i>
+                                <div class="widget-small danger coloured-icon"><i class="icon fa fa-calendar-o fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('first paragraph')}}</h4>
                                         <p><b id="users"></b></p>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.home.SecondParagraph.index")}}">
-                                <div class="widget-small primary coloured-icon"><i class="icon fa fa-user fa-3x"></i>
+                                <div class="widget-small success coloured-icon"><i class="icon fa fa-calendar-plus-o fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('Second Paragraph')}}</h4>
                                         <p><b id="users"></b></p>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <a style="  text-decoration: none"  href="{{route("admin.digisol.home.body.index")}}">
-                                <div class="widget-small warning coloured-icon"><i class="icon fas fa-list-ul fa-3x"></i>
+                                <div class="widget-small warning coloured-icon"><i class="icon fa fa-calendar-check-o fa-3x"></i>
                                     <div class="info">
                                         <h4>{{__('testimonials')}}</h4>
                                         <p><b id="subjects"></b></p>

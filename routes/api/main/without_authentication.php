@@ -9,10 +9,18 @@ Route::prefix("digisol")->group(function (){
         Route::get("/", "DigisolAboutApiController@index");
     });
 
+    Route::prefix("Services")->group(function (){
+        Route::get("/", "DigisolServicesApiController@index");
+    });
 
     Route::prefix("social-media")->group(function (){
         Route::get("/", "DigisolSocialMediaApiController@index");
     });
+
+    Route::prefix("home")->group(function (){
+        Route::get("/", "DigisolHomeApiController@index");
+    });
+
 
 });
 

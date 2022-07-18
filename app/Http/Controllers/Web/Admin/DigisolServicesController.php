@@ -31,7 +31,7 @@ class DigisolServicesController extends Controller
     public function indexMobile()
     {
         $data['mobiles'] = DigisolService::where('type',1)->get();
-        return view("admin.digisol.Services.mobile.index", $data);
+        return view("admin.digisol.services.mobile.index", $data);
     }
 
     public function CreateMobile()
@@ -43,7 +43,7 @@ class DigisolServicesController extends Controller
             Dialog::flashing($message);
             return redirect()->route("admin.digisol.Services.mobile.index");
         }
-        return view("admin.digisol.Services.mobile.create");
+        return view("admin.digisol.services.mobile.create");
     }
 
 
@@ -70,7 +70,7 @@ class DigisolServicesController extends Controller
     public function EditMobile(Request $request)
     {
         $data['mobile'] = DigisolService::findOrFail($request->id);
-        return view("admin.digisol.Services.mobile.edit", $data);
+        return view("admin.digisol.services.mobile.edit", $data);
     }
 
 
@@ -108,7 +108,7 @@ class DigisolServicesController extends Controller
     public function indexWeb()
     {
         $data['webs'] = DigisolService::where('type',2)->get();
-        return view("admin.digisol.Services.website.index", $data);
+        return view("admin.digisol.services.website.index", $data);
     }
 
     public function CreateWeb()
@@ -120,7 +120,7 @@ class DigisolServicesController extends Controller
             Dialog::flashing($message);
             return redirect()->route("admin.digisol.Services.Web.index");
         }
-        return view("admin.digisol.Services.website.create");
+        return view("admin.digisol.services.website.create");
     }
 
 
@@ -147,7 +147,7 @@ class DigisolServicesController extends Controller
     public function editWeb(Request $request)
     {
         $data['web'] = DigisolService::findOrFail($request->id);
-        return view("admin.digisol.Services.website.edit", $data);
+        return view("admin.digisol.services.website.edit", $data);
     }
 
 
@@ -188,7 +188,7 @@ class DigisolServicesController extends Controller
     public function indexMarket()
     {
         $data['markets'] = DigisolService::where('type',3)->get();
-        return view("admin.digisol.Services.marketing.index", $data);
+        return view("admin.digisol.services.marketing.index", $data);
     }
 
     public function CreateMarket()
@@ -200,7 +200,7 @@ class DigisolServicesController extends Controller
             Dialog::flashing($message);
             return redirect()->route("admin.digisol.Services.market.index");
         }
-        return view("admin.digisol.Services.marketing.create");
+        return view("admin.digisol.services.marketing.create");
     }
 
 
@@ -227,7 +227,7 @@ class DigisolServicesController extends Controller
     public function editMarket(Request $request)
     {
         $data['market'] = DigisolService::findOrFail($request->id);
-        return view("admin.digisol.Services.marketing.edit", $data);
+        return view("admin.digisol.services.marketing.edit", $data);
     }
 
 

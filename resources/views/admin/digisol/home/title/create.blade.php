@@ -11,7 +11,7 @@
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
             <li class="breadcrumb-item"><a href="#">{{__("Dashboard")}}</a></li>
-            <li class="breadcrumb-item"><a href="{{route("admin.digisol.title.index")}}">{{__("Title")}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route("admin.digisol.home.title.index")}}">{{__("Title")}}</a></li>
             <li class="breadcrumb-item"><a href="#">{{__("Create")}}</a></li>
         </ul>
     </div>
@@ -29,7 +29,7 @@
             <div class="tile">
                 <h3 class="tile-title">{{__("Create New Title")}}</h3>
                 <div class="tile-body">
-                    <form method="post" action="{{route("admin.digisol.title.store")}}">
+                    <form method="post" action="{{route("admin.digisol.home.title.store")}}">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">

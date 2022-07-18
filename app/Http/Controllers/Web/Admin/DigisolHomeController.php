@@ -5,9 +5,9 @@ use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Http\Controllers\Controller;
+use App\Models\DigisolHome;
 use App\Models\DigisolSecondParagraph;
 use App\Models\HomeTestimonial;
-use App\Models\HomeTitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -43,13 +43,13 @@ class DigisolHomeController extends Controller
 
     public function indexTitle()
     {
-        $data['homeTitles'] = HomeTitle::all();
+        $data['homeTitles'] = DigisolHome::where('type',1)->get();
         return view("admin.digisol.home.title.index", $data);
     }
 
     public function CreateTitle()
     {
-        $homeTitles = HomeTitle::all();
+        $homeTitles = DigisolHome::where('type',1)->get();
         if(!$homeTitles->isEmpty()){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website Titles");
@@ -67,11 +67,13 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.title.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $HomeTitle = new HomeTitle();
+        $HomeTitle = new DigisolHome();
         $HomeTitle->title_ar = $request->title_ar;
         $HomeTitle->title_en = $request->title_en;
         $HomeTitle->description_en = $request->description_en;
         $HomeTitle->description_ar = $request->description_ar;
+        $HomeTitle->type =1;
+        $HomeTitle->status =1;
         $HomeTitle->save();
         $message = (new SuccessMessage())->title("Create Successfully")
             ->body("The Website Title Has Been Create Successfully");
@@ -81,7 +83,7 @@ class DigisolHomeController extends Controller
 
     public function editTitle(Request $request)
     {
-        $data['homeTitle'] = HomeTitle::findOrFail($request->id);
+        $data['homeTitle'] = DigisolHome::findOrFail($request->id);
         return view("admin.digisol.home.title.edit", $data);
     }
 
@@ -92,11 +94,13 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.title.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $HomeTitle = HomeTitle::find($request->id);
+        $HomeTitle = DigisolHome::find($request->id);
         $HomeTitle->title_ar = $request->title_ar;
         $HomeTitle->title_en = $request->title_en;
         $HomeTitle->description_ar = $request->description_ar;
         $HomeTitle->description_en = $request->description_en;
+        $HomeTitle->type =1;
+        $HomeTitle->status =1;
         $HomeTitle->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
             ->body("The Website Title Has Been Updated Successfully");
@@ -107,7 +111,7 @@ class DigisolHomeController extends Controller
 
     public function destroyTitle(Request $request)
     {
-        $HomeTitle = HomeTitle::find($request->id);
+        $HomeTitle = DigisolHome::find($request->id);
         $HomeTitle->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Title Has Been Deleted Successfully");
@@ -119,13 +123,13 @@ class DigisolHomeController extends Controller
 
     public function indexSecondParagraph()
     {
-        $data['Paragraphs'] = DigisolSecondParagraph::all();
+        $data['Paragraphs'] = DigisolHome::where('type',2)->get();
         return view("admin.digisol.home.SecondParagraph.index", $data);
     }
 
     public function CreateSecondParagraph()
     {
-        $Paragraph = DigisolSecondParagraph::all();
+        $Paragraph = DigisolHome::where('type',2)->get();
         if(!$Paragraph->isEmpty()){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website Second Paragraph");
@@ -143,11 +147,13 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.SecondParagraph.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $Paragraph = new DigisolSecondParagraph();
+        $Paragraph = new DigisolHome();
         $Paragraph->title_ar = $request->title_ar;
         $Paragraph->title_en = $request->title_en;
         $Paragraph->description_en = $request->description_en;
         $Paragraph->description_ar = $request->description_ar;
+        $Paragraph->type =2;
+        $Paragraph->status =1;
         $Paragraph->save();
         $message = (new SuccessMessage())->title("Create Successfully")
             ->body("The Website SecondParagraph Has Been Create Successfully");
@@ -157,7 +163,7 @@ class DigisolHomeController extends Controller
 
     public function editSecondParagraph(Request $request)
     {
-        $data['Paragraph'] = DigisolSecondParagraph::findOrFail($request->id);
+        $data['Paragraph'] = DigisolHome::findOrFail($request->id);
         return view("admin.digisol.home.SecondParagraph.edit", $data);
     }
 
@@ -168,11 +174,13 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.SecondParagraph.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $Paragraph = DigisolSecondParagraph::find($request->id);
+        $Paragraph = DigisolHome::find($request->id);
         $Paragraph->title_ar = $request->title_ar;
         $Paragraph->title_en = $request->title_en;
         $Paragraph->description_ar = $request->description_ar;
         $Paragraph->description_en = $request->description_en;
+        $Paragraph->type =2;
+        $Paragraph->status =1;
         $Paragraph->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
             ->body("The Website Second Paragraph Has Been Updated Successfully");
@@ -183,7 +191,7 @@ class DigisolHomeController extends Controller
 
     public function destroySecondParagraph(Request $request)
     {
-        $Paragraph = DigisolSecondParagraph::find($request->id);
+        $Paragraph = DigisolHome::find($request->id);
         $Paragraph->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Second Paragraph Has Been Deleted Successfully");
@@ -192,16 +200,12 @@ class DigisolHomeController extends Controller
     }
 
 
-
-
-
-
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Testimonials >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
     public function indexBody()
     {
-        $data['testimonials'] = HomeTestimonial::all();
+        $data['testimonials'] = DigisolHome::where('type',3)->get();
         return view("admin.digisol.home.testimonials.index", $data);
     }
 
@@ -218,10 +222,14 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.body.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $HomeTitle = new HomeTestimonial();
-        $HomeTitle->name = $request->name;
-        $HomeTitle->body = $request->body;
+        $HomeTitle = new DigisolHome();
+        $HomeTitle->title_ar = $request->name;
+        $HomeTitle->title_en = $request->name;
+        $HomeTitle->description_ar = $request->body;
+        $HomeTitle->description_en = $request->body;
         $HomeTitle->date = $request->date;
+        $HomeTitle->type =3;
+        $HomeTitle->status =1;
         $HomeTitle->save();
         if($HomeTitle->save()){
             $HomeTitle->saveMedia($request->file("image"));
@@ -234,7 +242,7 @@ class DigisolHomeController extends Controller
 
     public function editBody(Request $request)
     {
-        $data['homeTitle'] = HomeTestimonial::findOrFail($request->id);
+        $data['homeTitle'] = DigisolHome::findOrFail($request->id);
         return view("admin.digisol.home.body.edit", $data);
     }
 
@@ -245,11 +253,13 @@ class DigisolHomeController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.home.title.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $HomeTitle = HomeTestimonial::find($request->id);
+        $HomeTitle = DigisolHome::find($request->id);
         $HomeTitle->title_ar = $request->title_ar;
         $HomeTitle->title_en = $request->title_en;
         $HomeTitle->description_ar = $request->description_ar;
         $HomeTitle->description_en = $request->description_en;
+        $HomeTitle->type =2;
+        $HomeTitle->status =1;
         $HomeTitle->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
             ->body("The Website Title Has Been Updated Successfully");
@@ -260,7 +270,7 @@ class DigisolHomeController extends Controller
 
     public function destroyBody(Request $request)
     {
-        $HomeTitle = HomeTestimonial::find($request->id);
+        $HomeTitle = DigisolHome::find($request->id);
         $HomeTitle->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Title Has Been Deleted Successfully");
