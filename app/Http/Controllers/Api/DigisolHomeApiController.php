@@ -34,7 +34,7 @@ class DigisolHomeApiController extends Controller
                     ];
                     break;
                 case 3:
-                    $data["Testimonials"][$index]=[
+                    $data["Testimonials"][]=[
                         "id"=>$home->id,
                         "title"=>$home->getTitleAttribute(),
                         "Description"=>$home->getDescriptionAttribute(),

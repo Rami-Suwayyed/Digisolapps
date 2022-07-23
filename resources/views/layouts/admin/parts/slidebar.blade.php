@@ -46,5 +46,16 @@
                 </ul>
             </li>
         @endif
+        <!------------------------- notification -------------------------->
+        @if(hasPermissions("control-website-KadyTech"))
+            <li class="treeview @if(request()->routeIs("admin.KadyTech*")) is-expanded @endif"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">{{__("KadyTech")}}</span><i class="treeview-indicator fa @if(app()->getLocale() == "en") fa-angle-right @else fa-angle-left @endif"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item @if(request()->routeIs("admin.KadyTech.home*")) active @endif" href="{{ route("admin.KadyTech.home.index") }}"><i class="icon fa fa-archive"></i> {{__("Home")}}</a></li>
+                    <li><a class="treeview-item @if(request()->routeIs("admin.KadyTech.social*")) active @endif" href="{{ route("admin.KadyTech.social.index") }}"><i class="icon fa fa-fire"></i> {{__("Social Media")}}</a></li>
+                    <li><a class="treeview-item @if(request()->routeIs("admin.KadyTech.contact*")) active @endif" href="{{ route("admin.KadyTech.contact.index") }}"><i class="icon fa fa-envelope"></i> {{__("Contact Us")}}</a></li>
+                    <li><a class="treeview-item @if(request()->routeIs("admin.KadyTech.settings*")) active @endif" href="{{ route("admin.KadyTech.settings.index") }}"><i class="icon fa fa-wrench"></i> {{__("Digisol settings")}}</a></li>
+                </ul>
+            </li>
+        @endif
     </ul>
 </aside>

@@ -4,15 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse\Json\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Models\AppUrl;
-use App\Models\ContactUs;
 use App\Models\DigisolContact;
-use App\Models\SaysAboutUs;
-use App\Models\SocialMedia;
-use App\Models\WebsiteTitle;
-use App\Models\WebsiteWeWork;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DigisolContactApiController extends Controller
