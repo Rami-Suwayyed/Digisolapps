@@ -5,7 +5,7 @@ use App\Helpers\Dialog\Web\Dialog;
 use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Http\Controllers\Controller;
-use App\Models\KadyTechSocialMedia;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,7 +22,7 @@ class KadyTechSocialController extends Controller
 
     public function index()
     {
-        $data['socialMedias'] = KadyTechSocialMedia::all();
+        $data['socialMedias'] = SocialMedia::where('company','kadytech')->get();
         return view("admin.KadyTech.social_media.index", $data);
     }
 
@@ -39,9 +39,10 @@ class KadyTechSocialController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.KadyTech.social.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $socialMedia = new KadyTechSocialMedia();
+        $socialMedia = new SocialMedia();
         $socialMedia->url = $request->url;
         $socialMedia->type = $request->type;
+        $socialMedia->company = 'kadytech';
         if($socialMedia->save()){
             if($request->hasFile("social_media_image")){
                 $socialMedia->saveMedia($request->file("social_media_image"));
@@ -56,7 +57,7 @@ class KadyTechSocialController extends Controller
 
     public function edit(Request $request)
     {
-        $data['socialMedia'] = KadyTechSocialMedia::find($request->id);
+        $data['socialMedia'] = SocialMedia::find($request->id);
         return view("admin.KadyTech.social_media.edit", $data);
     }
 
@@ -67,7 +68,7 @@ class KadyTechSocialController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.KadyTech.social.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $socialMedia = KadyTechSocialMedia::findOrFail($request->id);
+        $socialMedia = SocialMedia::findOrFail($request->id);
         $socialMedia->url = $request->url;
         $socialMedia->type = $request->type;
         $socialMedia->save();
@@ -84,7 +85,7 @@ class KadyTechSocialController extends Controller
 
     public function destroy(Request $request)
     {
-        $socialMedia = KadyTechSocialMedia::find($request->id);
+        $socialMedia = SocialMedia::find($request->id);
         if($socialMedia->delete()){
             $socialMedia->removeAllFiles();
         }

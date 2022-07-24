@@ -46,12 +46,12 @@
                             @foreach($contacts as $contact)
                                 <tr>
                                     <td>{{$contact->id}}</td>
-                                    <td>{{$contact->full_name}}</td>
+                                    <td>{{$contact->name}}</td>
                                     <td>{{$contact->email}}</td>
-                                    <td>{{$contact->phone_number}}</td>
+                                    <td>{{$contact->phone}}</td>
                                     <td>{{$contact->company_name}}</td>
-                                    <td>{{$contact->WebSite_URL}}</td>
-                                    <td>{{$contact->social_media_account}}</td>
+                                    <td>{{$contact->description}}</td>
+                                    <td>{{$contact->social_media}}</td>
                                     <td>{{$contact->web}}</td>
                                     <td>{{$contact->mobile}}</td>
                                     <td>{{$contact->market}}</td>

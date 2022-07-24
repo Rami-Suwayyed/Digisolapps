@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse\Json\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Models\DigisolContact;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,10 +32,11 @@ class DigisolContactApiController extends Controller
 
     private function store(Request $request)
     {
-        $ContactUs = new DigisolContact();
+        $ContactUs = new ContactUs();
         $ContactUs->name        = $request->name;
         $ContactUs->email       = $request->email;
         $ContactUs->phone       = $request->phone;
+        $ContactUs->type        = 'digisol';
         $ContactUs->description = $request->description;
         $ContactUs->save();
     }

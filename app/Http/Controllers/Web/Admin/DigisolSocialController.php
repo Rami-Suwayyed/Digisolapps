@@ -5,7 +5,7 @@ use App\Helpers\Dialog\Web\Dialog;
 use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Http\Controllers\Controller;
-use App\Models\DigisolSocialMedia;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +21,7 @@ class DigisolSocialController extends Controller
 
     public function index()
     {
-        $data['socialMedias'] = DigisolSocialMedia::all();
+        $data['socialMedias'] = SocialMedia::where('company','digisol')->get();
         return view("admin.digisol.social_media.index", $data);
     }
 
@@ -38,9 +38,10 @@ class DigisolSocialController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.social.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $socialMedia = new DigisolSocialMedia();
+        $socialMedia = new SocialMedia();
         $socialMedia->url = $request->url;
         $socialMedia->type = $request->type;
+        $socialMedia->company = 'digisol';
         if($socialMedia->save()){
             if($request->hasFile("social_media_image")){
                 $socialMedia->saveMedia($request->file("social_media_image"));
@@ -55,7 +56,7 @@ class DigisolSocialController extends Controller
 
     public function edit(Request $request)
     {
-        $data['socialMedia'] = DigisolSocialMedia::find($request->id);
+        $data['socialMedia'] = SocialMedia::find($request->id);
         return view("admin.digisol.social_media.edit", $data);
     }
 
@@ -66,7 +67,7 @@ class DigisolSocialController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.social.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $socialMedia = DigisolSocialMedia::findOrFail($request->id);
+        $socialMedia = SocialMedia::findOrFail($request->id);
         $socialMedia->url = $request->url;
         $socialMedia->type = $request->type;
         $socialMedia->save();
@@ -83,7 +84,7 @@ class DigisolSocialController extends Controller
 
     public function destroy(Request $request)
     {
-        $socialMedia = DigisolSocialMedia::find($request->id);
+        $socialMedia = SocialMedia::find($request->id);
         if($socialMedia->delete()){
             $socialMedia->removeAllFiles();
         }

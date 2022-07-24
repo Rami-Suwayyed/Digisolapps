@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Helpers\Dialog\Web\Dialog;
 use App\Helpers\Dialog\Web\Types\DangerMessage;
-use App\Helpers\Dialog\Web\Types\SuccessMessage;
-use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Http\Controllers\Controller;
-use App\Models\DigisolContact;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+
 
 class DigisolContactController extends Controller
 {
@@ -24,20 +22,18 @@ class DigisolContactController extends Controller
 
     public function index(Request $request){
 
-        $data["contacts"] = DigisolContact::all();
+        $data["contacts"] = ContactUs::where('type','digisol')->get();
 
         return view  ("admin.digisol.contact.index",$data);
-
     }
 
     public function destroy(Request $request){
-        $description = DigisolContact::findOrFail($request->id);
+        $description = ContactUs::findOrFail($request->id);
         $description->delete();
         $message = (new DangerMessage())->title("Delete Successfully")
             ->body("The Contact Has Been Deleted Successfully");
         Dialog::flashing($message);
         return redirect()->route("admin.digisol.contact.index");
-
     }
 
 
