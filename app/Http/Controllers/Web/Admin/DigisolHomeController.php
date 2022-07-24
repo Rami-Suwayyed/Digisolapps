@@ -211,6 +211,13 @@ class DigisolHomeController extends Controller
 
     public function CreateBody()
     {
+        $Paragraph = DigisolHome::where('type',3)->get();
+        if($Paragraph->count()>2){
+            $message = (new WarningMessage())->title("Cannot")
+                ->body("Be Added Maximum Number Of Testimonials Are (3)");
+            Dialog::flashing($message);
+            return redirect()->route("admin.digisol.home.body.index");
+        }
         return view("admin.digisol.home.testimonials.create");
     }
 
@@ -243,7 +250,7 @@ class DigisolHomeController extends Controller
     public function editBody(Request $request)
     {
         $data['homeTitle'] = DigisolHome::findOrFail($request->id);
-        return view("admin.digisol.home.body.edit", $data);
+        return view("admin.digisol.home.testimonials.edit", $data);
     }
 
 
@@ -251,20 +258,20 @@ class DigisolHomeController extends Controller
     {
         $valid = Validator::make($request->all(), $this->rules());
         if($valid->fails()){
-            return redirect()->route("admin.digisol.home.title.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
+            return redirect()->route("admin.digisol.home.body.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
         $HomeTitle = DigisolHome::find($request->id);
         $HomeTitle->title_ar = $request->title_ar;
         $HomeTitle->title_en = $request->title_en;
         $HomeTitle->description_ar = $request->description_ar;
         $HomeTitle->description_en = $request->description_en;
-        $HomeTitle->type =2;
+        $HomeTitle->type =3;
         $HomeTitle->status =1;
         $HomeTitle->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
             ->body("The Website Title Has Been Updated Successfully");
         Dialog::flashing($message);
-        return redirect()->route("admin.digisol.home.title.index");
+        return redirect()->route("admin.digisol.home.body.index");
     }
 
 
@@ -275,7 +282,7 @@ class DigisolHomeController extends Controller
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Title Has Been Deleted Successfully");
         Dialog::flashing($message);
-        return redirect()->route("admin.digisol.home.title.index");
+        return redirect()->route("admin.digisol.home.body.index");
     }
 
 }

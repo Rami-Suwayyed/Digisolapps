@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\GeneralSettings;
 use App\Models\KadyTechSetting;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class KadyTechSettingsRepository
 {
 
     public function save(Request $request){
-        $this->saveGeneralSettings(KadyTechSetting::first(), $request);
+        $this->saveGeneralSettings(GeneralSettings::where('type','kadytech')->first(), $request);
         // $this->saveAppUrl(AppUrl::first(), $request);
     }
 

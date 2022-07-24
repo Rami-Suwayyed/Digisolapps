@@ -83,6 +83,7 @@ class DigisolAboutController extends Controller
         $FirstP = DigisolAboutUs::find($request->id);
         $FirstP->title_ar = $request->title_ar;
         $FirstP->title_en = $request->title_en;
+        $FirstP->description_en = $request->description_en;
         $FirstP->description_ar = $request->description_ar;
         $FirstP->type = 1;
         $FirstP->save();

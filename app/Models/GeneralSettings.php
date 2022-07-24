@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class GeneralSettings extends Model
 {
     use HasFactory;
-    protected $fillable = ["time_pay","Time_accept","whatsapp","SoS_whatsapp","SoS_Phone"];
+    protected $fillable = ["type","whatsapp","SoS_whatsapp","SoS_Phone"];
 }

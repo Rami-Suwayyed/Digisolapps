@@ -13,8 +13,6 @@ class Settings
 
     protected function __construct(){
         $this->general = GeneralSettings::first();
-        $this->zoneConfiguration = ZoneConfiguration::first();
-        $this->paymentMethods = PaymentMethod::all();
     }
     protected function __clone()
     {

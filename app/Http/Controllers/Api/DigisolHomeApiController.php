@@ -38,7 +38,7 @@ class DigisolHomeApiController extends Controller
                         "id"=>$home->id,
                         "title"=>$home->getTitleAttribute(),
                         "Description"=>$home->getDescriptionAttribute(),
-                        "Date"=>$home->date ?? null,
+                        "date"=>$home->date ?? null,
                         "IMAGE"=>$home->getFirstMediaFile() ?  $home->getFirstMediaFile()->url : null,
                     ];
                     break;

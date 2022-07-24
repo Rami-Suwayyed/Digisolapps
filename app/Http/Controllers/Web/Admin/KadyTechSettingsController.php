@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\GeneralSettings;
 use App\Models\KadyTechSetting;
 use App\Repositories\KadyTechSettingsRepository;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class KadyTechSettingsController extends Controller
     public function index(Request $request){
         $this->permissionsAllowed("control-settings");
 
-        $data["general"] = KadyTechSetting::first();
+        $data["general"] = GeneralSettings::where('type','kadytech')->first();
         return view("admin.KadyTech.settings", $data);
     }
 

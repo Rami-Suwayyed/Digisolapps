@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AppUrl;
 use App\Models\DigisolSetting;
 use App\Models\GeneralSettings;
+use App\Models\Settings;
 use App\Repositories\SettingsRepository;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class DigisolSettingsController extends Controller
     public function index(Request $request){
         $this->permissionsAllowed("control-settings");
 
-        $data["general"] = DigisolSetting::first();
+        $data["general"] = GeneralSettings::where('type','digisol')->first();
         return view("admin.digisol.settings", $data);
     }
 

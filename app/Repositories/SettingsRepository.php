@@ -11,7 +11,7 @@ class SettingsRepository
 {
 
     public function save(Request $request){
-        $this->saveGeneralSettings(DigisolSetting::first(), $request);
+        $this->saveGeneralSettings(GeneralSettings::where('type','digisol')->first(), $request);
         // $this->saveAppUrl(AppUrl::first(), $request);
     }
 
