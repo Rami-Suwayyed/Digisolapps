@@ -22,16 +22,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="buttons-group">
-                <a href="{{route("admin.digisol.home.body.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Our clients')}}</a>
-            </div>
+            @if($testimonials->count() <= 2)
+                <div class="buttons-group">
+                    <a href="{{route("admin.digisol.home.body.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Our clients')}}</a>
+                </div>
+            @endif
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Image")}}</th>
                                 <th>{{__("Name")}}</th>
                                 <th>{{__("Body")}}</th>
@@ -41,7 +42,6 @@
                             <tbody>
                             @foreach($testimonials as $testimonial)
                                 <tr>
-                                    <td>{{$testimonial->id}}</td>
                                     <td>@if($testimonial->getFirstMediaFile()) <img src="{{ $testimonial->getFirstMediaFile()->url}}" alt="" width="50px">@endif</td>
                                     <td>{{$testimonial->getTitleAttribute()}}</td>
                                     <th>{{$testimonial->getDescriptionAttribute()}}</th>

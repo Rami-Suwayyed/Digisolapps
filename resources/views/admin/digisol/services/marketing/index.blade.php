@@ -28,10 +28,9 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +39,6 @@
                             <tbody>
                             @foreach($markets as $market)
                                 <tr>
-                                    <td>{{$market->id}}</td>
                                     <td>{{$market->getTitleAttribute()}}</td>
                                     <th>{{$market->getDescriptionAttribute()}}</th>
                                     <td>

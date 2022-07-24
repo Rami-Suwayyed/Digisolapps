@@ -22,16 +22,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="buttons-group">
-                <a href="{{route("admin.digisol.about.fourth.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create fourth Paragraph')}}</a>
-            </div>
+            @if($fourths->count()!=1)
+                <div class="buttons-group">
+                    <a href="{{route("admin.digisol.about.fourth.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create fourth Paragraph')}}</a>
+                </div>
+            @endif
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +41,6 @@
                             <tbody>
                             @foreach($fourths as $fourth)
                                 <tr>
-                                    <td>{{$fourth->id}}</td>
                                     <td>{{$fourth->getTitleAttribute()}}</td>
                                     <th>{{$fourth->getDescriptionAttribute()}}</th>
                                     <td>

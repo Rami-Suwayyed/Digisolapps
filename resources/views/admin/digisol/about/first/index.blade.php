@@ -22,16 +22,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="buttons-group">
-                <a href="{{route("admin.digisol.about.first.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create first Paragraph')}}</a>
-            </div>
+            @if($firsts->count()!=1)
+                <div class="buttons-group">
+                    <a href="{{route("admin.digisol.about.first.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create first Paragraph')}}</a>
+                </div>
+            @endif
             <div class="tile">
                 <div class="tile-first">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +41,6 @@
                             <tfirst>
                             @foreach($firsts as $firsts)
                                 <tr>
-                                    <td>{{$firsts->id}}</td>
                                     <td>{{$firsts->getTitleAttribute()}}</td>
                                     <th>{{$firsts->getDescriptionAttribute()}}</th>
                                     <td>

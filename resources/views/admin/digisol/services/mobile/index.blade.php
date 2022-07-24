@@ -28,10 +28,9 @@
             <div class="tile">
                 <div class="tile-first">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +39,6 @@
                             <tfirst>
                             @foreach($mobiles as $mobile)
                                 <tr>
-                                    <td>{{$mobile->id}}</td>
                                     <td>{{$mobile->getTitleAttribute()}}</td>
                                     <th>{{$mobile->getDescriptionAttribute()}}</th>
                                     <td>

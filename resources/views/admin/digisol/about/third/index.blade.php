@@ -22,16 +22,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="buttons-group">
-               <a href="{{route("admin.digisol.about.third.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create third Paragraph')}}</a>
-            </div>
+            @if($thirds->count()!=1)
+                <div class="buttons-group">
+                   <a href="{{route("admin.digisol.about.third.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create third Paragraph')}}</a>
+                </div>
+            @endif
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +41,6 @@
                             <tbody>
                             @foreach($thirds as $third)
                                 <tr>
-                                    <td>{{$third->id}}</td>
                                     <td>{{$third->getTitleAttribute()}}</td>
                                     <th>{{$third->getDescriptionAttribute()}}</th>
                                     <td>
