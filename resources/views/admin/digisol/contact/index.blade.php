@@ -24,10 +24,9 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="sampleTable">
+                        <table class="table table-hover table-bordered">
                             <thead>
                             <tr>
-                                <th>#{{__('ID')}}</th>
                                 <th>{{__('Name')}}</th>
                                 <th>{{__('Email')}}</th>
                                 <th>{{__('Phone number ')}}</th>
@@ -39,7 +38,6 @@
                             <tbody>
                             @foreach($contacts as $contact)
                                 <tr>
-                                    <td>{{$contact->id}}</td>
                                     <td>{{$contact->name}}</td>
                                     <td>{{$contact->email}}</td>
                                     <td>{{$contact->phone}}</td>

@@ -5,13 +5,13 @@
 @section("page-nav-title")
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i>{{__("Website Digisol")}}</h1>
-            <p>{{__("All Website Digisol")}}</p>
+            <h1><i class="fa fa-dashboard"></i>{{__("Website KadyTech")}}</h1>
+            <p>{{__("All Website KadyTech")}}</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
             <li class="breadcrumb-item"><a href="#">{{__("Dashboard")}}</a></li>
-            <li class="breadcrumb-item"><a href="#">{{__("Digisol")}}</a></li>
+            <li class="breadcrumb-item"><a href="#">{{__("KadyTech")}}</a></li>
         </ul>
     </div>
 @endsection
@@ -30,7 +30,7 @@
                     <div class="row">
                         @if(isPermissionsAllowed("view-subjects"))
                             <div class="col-md-6 col-lg-3">
-                                <a style="  text-decoration: none"  href="{{route("admin.digisol.home.index")}}">
+                                <a style="  text-decoration: none"  href="{{route("admin.KadyTech.index")}}">
                                     <div class="widget-small primary coloured-icon"><i class="icon fa fa-archive fa-3x"></i>
                                         <div class="info">
                                             <h4>{{__('Home')}}</h4>

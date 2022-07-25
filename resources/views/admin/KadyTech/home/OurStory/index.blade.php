@@ -22,16 +22,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="buttons-group">
-               <a href="{{route("admin.KadyTech.home.OurStory.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create OurStory')}}</a>
-            </div>
+            @if($homeTitles->count()!=1)
+                <div class="buttons-group">
+                   <a href="{{route("admin.KadyTech.home.OurStory.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create OurStory')}}</a>
+                </div>
+            @endif
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered text-center" id="sampleTable">
+                        <table class="table table-hover table-bordered text-center">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Title")}}</th>
                                 <th>{{__("Description")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -40,7 +41,6 @@
                             <tbody>
                             @foreach($homeTitles as $homeTitle)
                                 <tr>
-                                    <td>{{$homeTitle->id}}</td>
                                     <td>{{$homeTitle->getTitleAttribute()}}</td>
                                     <th>{{$homeTitle->getDescriptionAttribute()}}</th>
                                     <td>

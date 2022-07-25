@@ -35,7 +35,6 @@
                         <table class="table table-hover table-bordered text-center" id="sampleTable">
                             <thead>
                             <tr>
-                                <th>{{__("ID")}}</th>
                                 <th>{{__("Image")}}</th>
                                 <th>{{__("Url")}}</th>
                                 <th>{{__("Control")}}</th>
@@ -45,7 +44,6 @@
                             <tbody>
                             @foreach($socialMedias as $socialMedia)
                                 <tr>
-                                    <td>{{$socialMedia->id}}</td>
                                     <td><img src="{{$socialMedia->getFirstMediaFile()->url}}" width="75" alt=""></td>
                                     <td><a href="{{$socialMedia->url}}">{{$socialMedia->url}}</a></td>
                                     <td>

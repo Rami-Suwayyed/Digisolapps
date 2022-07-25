@@ -23,9 +23,9 @@
     <div class="row">
         <div class="col-md-12">
             @if($homeTitles->count()!=1)
-            <div class="buttons-group">
-               <a href="{{route("admin.digisol.home.title.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Website Title')}}</a>
-            </div>
+                <div class="buttons-group">
+                   <a href="{{route("admin.digisol.home.title.create")}}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('Create Website Title')}}</a>
+                </div>
             @endif
             <div class="tile">
                 <div class="tile-body">
