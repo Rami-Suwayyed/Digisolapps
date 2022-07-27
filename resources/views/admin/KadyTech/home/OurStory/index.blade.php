@@ -45,8 +45,8 @@
                                     <th>{{$homeTitle->getDescriptionAttribute()}}</th>
                                     <td>
                                         <a href="{{route("admin.KadyTech.home.OurStory.edit", ["id" => $homeTitle->id])}}" class="control-link edit"><i class="fas fa-edit"></i></a>
-                                        <form action="{{route("admin.KadyTech.home.OurStory.destroy", $homeTitle->id)}}" method="post" id="delete{{$homeTitle->id}}" style="display: none" data-swal-title="{{__("Delete How To Order")}}" data-swal-text="{{__("Are Your Sure To Delete This How To Order ?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__('the How To Order has been deleted successfully')}}">@csrf @method("delete")</form>
-                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$homeTitle->id}}"><i class="far fa-trash-alt"></i></span>
+{{--                                        <form action="{{route("admin.KadyTech.home.OurStory.destroy", $homeTitle->id)}}" method="post" id="delete{{$homeTitle->id}}" style="display: none" data-swal-title="{{__("Delete How To Order")}}" data-swal-text="{{__("Are Your Sure To Delete This How To Order ?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__('the How To Order has been deleted successfully')}}">@csrf @method("delete")</form>--}}
+{{--                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$homeTitle->id}}"><i class="far fa-trash-alt"></i></span>--}}
                                     </td>
                                 </tr>
                             @endforeach

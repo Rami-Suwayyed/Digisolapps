@@ -35,22 +35,22 @@ class DigisolAppResource extends JsonResource
             "Category"                 => $this->Category->getNameAttribute(),
             "name"                 => $this->getNameAttribute(),
             "Description"          => $this->getDescriptionAttribute(),
-            "image-icon"            => $this->getFirstMediaFile("icon") ? $this->getFirstMediaFile("icon")->url : null,
-            "image-phone"          => $this->getFirstMediaFile("phone") ?  $this->getFirstMediaFile("phone")->url : null,
-            "image-background"     => $this->getFirstMediaFile("background") ?  $this->getFirstMediaFile("background")->url : null,
-            "link-web" => [
+            "imageIcon"            => $this->getFirstMediaFile("icon") ? $this->getFirstMediaFile("icon")->url : null,
+            "imagePhone"          => $this->getFirstMediaFile("phone") ?  $this->getFirstMediaFile("phone")->url : null,
+            "imageBackground"     => $this->getFirstMediaFile("background") ?  $this->getFirstMediaFile("background")->url : null,
+            "linkWeb" => [
                 "link" => $this->link_web,
                 "icon" => $Web,
             ],
-            "link-android" => [
+            "linkAndroid" => [
                 "link" => $this->link_android,
                 "icon" => $Android,
             ],
-            "link-ios" => [
+            "linkIos" => [
                 "link" => $this->link_ios,
                 "icon" => $Ios,
             ],
-            "link-huawei" => [
+            "linkHuawei" => [
                 "link" => $this->link_huawei,
                 "icon" => $Huawei,
             ],

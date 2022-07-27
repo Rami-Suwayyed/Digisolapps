@@ -36,6 +36,7 @@
                                 <th>{{__("Image")}}</th>
                                 <th>{{__("Name")}}</th>
                                 <th>{{__("Body")}}</th>
+                                <th>{{__("Date")}}</th>
                                 <th>{{__("Control")}}</th>
                             </tr>
                             </thead>
@@ -45,6 +46,7 @@
                                     <td>@if($testimonial->getFirstMediaFile()) <img src="{{ $testimonial->getFirstMediaFile()->url}}" alt="" width="50px">@endif</td>
                                     <td>{{$testimonial->getTitleAttribute()}}</td>
                                     <th>{{$testimonial->getDescriptionAttribute()}}</th>
+                                    <th>{{date('d-m-Y', strtotime($testimonial->date))}}</th>
                                     <td>
                                         <a href="{{route("admin.digisol.home.body.edit", $testimonial->id)}}" class="control-link edit"><i class="fas fa-edit"></i></a>
                                         <form action="{{route("admin.digisol.home.body.destroy", $testimonial->id)}}" method="post" id="delete{{$testimonial->id}}" style="display: none" data-swal-title="{{__("Delete Says HomeTestimonial")}}" data-swal-text="{{__("Are You Sure To Delete This Says HomeTestimonial?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__("the Says HomeTestimonial has been deleted successfully")}}">@csrf @method("delete")</form>

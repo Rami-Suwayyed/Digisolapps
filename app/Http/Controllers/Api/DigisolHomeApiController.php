@@ -5,17 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ApiResponse\Json\JsonResponse;
 use App\Helpers\Media\Src\MediaDefaultPhotos;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DigisolHomeResource;
-use App\Models\DigisolApp;
-use App\Models\DigisolHome;
-use App\Models\HomeTestimonial;
+use App\Models\HomePage;
+
 
 
 class DigisolHomeApiController extends Controller
 {
     use MediaDefaultPhotos;
     public function index(){
-        $Homedata = DigisolHome::all();
+        $Homedata = HomePage::where('company','digisol')->get();
 
         foreach ($Homedata as $index=> $home ){
             switch($home->type){

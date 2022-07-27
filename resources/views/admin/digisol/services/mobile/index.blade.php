@@ -43,8 +43,8 @@
                                     <th>{{$mobile->getDescriptionAttribute()}}</th>
                                     <td>
                                         <a href="{{route("admin.digisol.Services.mobile.edit", $mobile->id)}}" class="control-link edit"><i class="fas fa-edit"></i></a>
-                                        <form action="{{route("admin.digisol.Services.mobile.destroy", $mobile->id)}}" method="post" id="delete{{$mobile->id}}" style="display: none" data-swal-title="{{__("Delete Says HomeTestimonial")}}" data-swal-text="{{__("Are You Sure To Delete This Says HomeTestimonial?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__("the Says HomeTestimonial has been deleted successfully")}}">@csrf @method("delete")</form>
-                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$mobile->id}}"><i class="far fa-trash-alt"></i></span>
+{{--                                        <form action="{{route("admin.digisol.Services.mobile.destroy", $mobile->id)}}" method="post" id="delete{{$mobile->id}}" style="display: none" data-swal-title="{{__("Delete Says HomeTestimonial")}}" data-swal-text="{{__("Are You Sure To Delete This Says HomeTestimonial?")}}" data-yes="{{__("Yes")}}" data-no="{{__("No")}}" data-success-msg="{{__("the Says HomeTestimonial has been deleted successfully")}}">@csrf @method("delete")</form>--}}
+{{--                                        <span href="#" class="control-link remove form-confirm" data-form-id="#delete{{$mobile->id}}"><i class="far fa-trash-alt"></i></span>--}}
                                     </td>
                                 </tr>
                             @endforeach

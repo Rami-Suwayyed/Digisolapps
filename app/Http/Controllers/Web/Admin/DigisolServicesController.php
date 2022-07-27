@@ -37,7 +37,7 @@ class DigisolServicesController extends Controller
     public function CreateMobile()
     {
         $mobiles= DigisolService::where('type',1)->get();
-        if(!$mobiles->isEmpty()){
+        if($mobiles->count()>2){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website services mobile");
             Dialog::flashing($message);
@@ -57,8 +57,8 @@ class DigisolServicesController extends Controller
         $mobile = new DigisolService();
         $mobile->title_ar = $request->title_ar;
         $mobile->title_en = $request->title_en;
-        $mobile->description_en = $request->description_en;
-        $mobile->description_ar = $request->description_ar;
+        $mobile->description_en	 = $request->description_en	;
+        $mobile->description_ar = $request->description_en;
         $mobile->type = 1;
         $mobile->save();
         $message = (new SuccessMessage())->title("Create Successfully")
@@ -83,7 +83,8 @@ class DigisolServicesController extends Controller
         $mobile = DigisolService::find($request->id);
         $mobile->title_ar = $request->title_ar;
         $mobile->title_en = $request->title_en;
-        $mobile->description_ar = $request->description_ar;
+        $mobile->description_en = $request->description_en;
+        $mobile->description_ar = $request->description_en;
         $mobile->type = 1;
         $mobile->save();
         $message = (new SuccessMessage())->title("Updated Successfully")
@@ -114,7 +115,7 @@ class DigisolServicesController extends Controller
     public function CreateWeb()
     {
         $webs = DigisolService::where('type',2)->get();
-        if(!$webs->isEmpty()){
+        if($webs->count()>1){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website Web  Development");
             Dialog::flashing($message);
@@ -194,7 +195,7 @@ class DigisolServicesController extends Controller
     public function CreateMarket()
     {
         $marketing = DigisolService::where('type',3)->get();
-        if(!$marketing->isEmpty()){
+        if($marketing->count()>2){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website marketing Paragraph");
             Dialog::flashing($message);

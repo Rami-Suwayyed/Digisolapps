@@ -12,24 +12,24 @@ class DigisolServicesApiController extends Controller
 
     public function index(){
         $Services = DigisolService::all();
-        foreach ($Services as $Service){
+        foreach ($Services as $index=> $Service){
             $title=$Service->getTitleAttribute();
             $Description=$Service->getDescriptionAttribute();
             switch($Service->type){
                 case 1:
-                    $data["Mobile"]=[
+                    $data["Mobile"][]=[
                         "id"=>$Service->id,
                         "title"=>$title,
                         "Description"=>$Description];
                     break;
                 case 2:
-                    $data["Website"]=[
+                    $data["Website"][]=[
                         "id"=>$Service->id,
                         "title"=>$title,
                         "Description"=>$Description];
                     break;
                 case 3:
-                    $data["MARKETING"]=[
+                    $data["MARKETING"][]=[
                         "id"=>$Service->id,
                         "title"=>$title,
                         "Description"=>$Description];
