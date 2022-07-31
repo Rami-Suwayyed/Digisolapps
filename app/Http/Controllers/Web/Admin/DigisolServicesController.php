@@ -5,7 +5,7 @@ use App\Helpers\Dialog\Web\Types\DangerMessage;
 use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Http\Controllers\Controller;
-use App\Models\DigisolService;
+use App\Models\ServicePage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,13 +30,13 @@ class DigisolServicesController extends Controller
 
     public function indexMobile()
     {
-        $data['mobiles'] = DigisolService::where('type',1)->get();
+        $data['mobiles'] = ServicePage::where('type',1)->where('company','digisol')->get();
         return view("admin.digisol.services.mobile.index", $data);
     }
 
     public function CreateMobile()
     {
-        $mobiles= DigisolService::where('type',1)->get();
+        $mobiles= ServicePage::where('type',1)->where('company','digisol')->get();
         if($mobiles->count()>2){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website services mobile");
@@ -54,12 +54,13 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.mobile.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $mobile = new DigisolService();
+        $mobile = new ServicePage();
         $mobile->title_ar = $request->title_ar;
         $mobile->title_en = $request->title_en;
         $mobile->description_en	 = $request->description_en	;
         $mobile->description_ar = $request->description_en;
         $mobile->type = 1;
+        $mobile->company ='digisol';
         $mobile->save();
         $message = (new SuccessMessage())->title("Create Successfully")
             ->body("The Website services mobile Has Been Create Successfully");
@@ -69,7 +70,7 @@ class DigisolServicesController extends Controller
 
     public function EditMobile(Request $request)
     {
-        $data['mobile'] = DigisolService::findOrFail($request->id);
+        $data['mobile'] = ServicePage::findOrFail($request->id);
         return view("admin.digisol.services.mobile.edit", $data);
     }
 
@@ -80,7 +81,7 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.mobile.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $mobile = DigisolService::find($request->id);
+        $mobile = ServicePage::find($request->id);
         $mobile->title_ar = $request->title_ar;
         $mobile->title_en = $request->title_en;
         $mobile->description_en = $request->description_en;
@@ -96,7 +97,7 @@ class DigisolServicesController extends Controller
 
     public function DestroyMobile(Request $request)
     {
-        $mobile = DigisolService::find($request->id);
+        $mobile = ServicePage::find($request->id);
         $mobile->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website services mobile Has Been Deleted Successfully");
@@ -108,13 +109,13 @@ class DigisolServicesController extends Controller
 
     public function indexWeb()
     {
-        $data['webs'] = DigisolService::where('type',2)->get();
+        $data['webs'] = ServicePage::where('type',2)->where('company','digisol')->get();
         return view("admin.digisol.services.website.index", $data);
     }
 
     public function CreateWeb()
     {
-        $webs = DigisolService::where('type',2)->get();
+        $webs = ServicePage::where('type',2)->where('company','digisol')->get();
         if($webs->count()>1){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website Web  Development");
@@ -132,12 +133,13 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.Web.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $web = new DigisolService();
+        $web = new ServicePage();
         $web->title_ar = $request->title_ar;
         $web->title_en = $request->title_en;
         $web->description_en = $request->description_en;
         $web->description_ar = $request->description_ar;
         $web->type = 2;
+        $web->company ='digisol';
         $web->save();
         $message = (new SuccessMessage())->title("Create Successfully")
             ->body("The Website WebParagraph Has Been Create Successfully");
@@ -147,7 +149,7 @@ class DigisolServicesController extends Controller
 
     public function editWeb(Request $request)
     {
-        $data['web'] = DigisolService::findOrFail($request->id);
+        $data['web'] = ServicePage::findOrFail($request->id);
         return view("admin.digisol.services.website.edit", $data);
     }
 
@@ -158,7 +160,7 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.Web.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $web = DigisolService::find($request->id);
+        $web = ServicePage::find($request->id);
         $web->title_ar = $request->title_ar;
         $web->title_en = $request->title_en;
         $web->description_ar = $request->description_ar;
@@ -174,7 +176,7 @@ class DigisolServicesController extends Controller
 
     public function destroyWeb(Request $request)
     {
-        $web = DigisolService::find($request->id);
+        $web = ServicePage::find($request->id);
         $web->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Web Paragraph Has Been Deleted Successfully");
@@ -188,13 +190,13 @@ class DigisolServicesController extends Controller
 
     public function indexMarket()
     {
-        $data['markets'] = DigisolService::where('type',3)->get();
+        $data['markets'] = ServicePage::where('type',3)->where('company','digisol')->get();
         return view("admin.digisol.services.marketing.index", $data);
     }
 
     public function CreateMarket()
     {
-        $marketing = DigisolService::where('type',3)->get();
+        $marketing = ServicePage::where('type',3)->where('company','digisol')->get();
         if($marketing->count()>2){
             $message = (new WarningMessage())->title("Cannot")
                 ->body("Cannot be added Website marketing Paragraph");
@@ -212,12 +214,13 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.market.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $market = new DigisolService();
+        $market = new ServicePage();
         $market->title_ar = $request->title_ar;
         $market->title_en = $request->title_en;
         $market->description_en = $request->description_en;
         $market->description_ar = $request->description_ar;
         $market->type = 3;
+        $market->company ='digisol';
         $market->save();
         $message = (new SuccessMessage())->title("Create Successfully")
             ->body("The Website WebParagraph Has Been Create Successfully");
@@ -227,7 +230,7 @@ class DigisolServicesController extends Controller
 
     public function editMarket(Request $request)
     {
-        $data['market'] = DigisolService::findOrFail($request->id);
+        $data['market'] = ServicePage::findOrFail($request->id);
         return view("admin.digisol.services.marketing.edit", $data);
     }
 
@@ -238,7 +241,7 @@ class DigisolServicesController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.Services.market.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $market = DigisolService::find($request->id);
+        $market = ServicePage::find($request->id);
         $market->title_ar = $request->title_ar;
         $market->title_en = $request->title_en;
         $market->description_ar = $request->description_ar;
@@ -254,7 +257,7 @@ class DigisolServicesController extends Controller
 
     public function destroyMarket(Request $request)
     {
-        $market = DigisolService::find($request->id);
+        $market = ServicePage::find($request->id);
         $market->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The Website Web Paragraph Has Been Deleted Successfully");

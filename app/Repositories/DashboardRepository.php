@@ -14,7 +14,8 @@ class DashboardRepository
 {
     public function getAllCounters()
     {
-        $sql = "SELECT  (SELECT COUNT(id) FROM digisol_contact )  as contactus";
+        $sql = "SELECT  (SELECT COUNT(id) FROM contact_us WHERE contact_us.type = 'digisol')  as DigisolContact,
+                        (SELECT COUNT(id) FROM contact_us  WHERE contact_us.type ='kadytech')  as KadyTechContact";
         return DB::select($sql)[0];
     }
 

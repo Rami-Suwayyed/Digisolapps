@@ -23,7 +23,19 @@
                     <div class="widget-small warning coloured-icon"><i class="icon fa fa-envelope-open fa-3x"></i>
                         <div class="info">
                             <h4>{{__("Digisol ContactUs")}}</h4>
-                            <p><b id="ordersCanceled">{{$counter->contactus}}</b></p>
+                            <p><b id="ordersCanceled">{{$counter->DigisolContact}}</b></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+        @if(isPermissionsAllowed("control-settings-website-kadytech"))
+            <div class="col-md-6 col-lg-3">
+                <a style="  text-decoration: none" href="{{ route("admin.KadyTech.contact.index") }}">
+                    <div class="widget-small warning coloured-icon"><i class="icon fa fa-envelope-open fa-3x"></i>
+                        <div class="info">
+                            <h4>{{__("KadyTech ContactUs")}}</h4>
+                            <p><b id="ordersCanceled">{{$counter->KadyTechContact}}</b></p>
                         </div>
                     </div>
                 </a>

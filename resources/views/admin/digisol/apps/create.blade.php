@@ -110,10 +110,10 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label">{{__("data")}}</label>
-                                    <input class="form-control @if($errors->has('data')) is-invalid @endif" type="date" name="data" placeholder="{{__("Enter Data")}}" value="{{inputValue("data")}}">
+                                    <label class="control-label">{{__("date")}}</label>
+                                    <input class="form-control @if($errors->has('date')) is-invalid @endif" type="date" name="date" placeholder="{{__("Enter Date")}}" value="{{inputValue("date")}}">
                                 </div>
-                                @error("data")
+                                @error("date")
                                 <div class="input-error">{{$message}}</div>
                                 @enderror
                             </div>

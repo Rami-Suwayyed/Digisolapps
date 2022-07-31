@@ -47,7 +47,7 @@
             </li>
         @endif
         <!------------------------- notification -------------------------->
-        @if(hasPermissions("control-website-KadyTech"))
+        @if(hasPermissions("control-website-kadytech"))
             <li class="treeview @if(request()->routeIs("admin.KadyTech*")) is-expanded @endif"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-window-maximize"></i><span class="app-menu__label">{{__("KadyTech")}}</span><i class="treeview-indicator fa @if(app()->getLocale() == "en") fa-angle-right @else fa-angle-left @endif"></i></a>
                 <ul class="treeview-menu">
                     <li><a class="treeview-item @if(request()->routeIs("admin.KadyTech.home*")) active @endif" href="{{ route("admin.KadyTech.home.index") }}"><i class="icon fa fa-archive"></i> {{__("Home")}}</a></li>

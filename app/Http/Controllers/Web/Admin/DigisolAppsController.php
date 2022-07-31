@@ -8,8 +8,8 @@ use App\Helpers\Dialog\Web\Types\SuccessMessage;
 use App\Helpers\Dialog\Web\Types\WarningMessage;
 use App\Helpers\Media\Src\MediaDefaultPhotos;
 use App\Http\Controllers\Controller;
+use App\Models\AppsPage;
 use App\Models\CategoryApps;
-use App\Models\DigisolApp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,7 +24,7 @@ class DigisolAppsController extends Controller
             "name_ar"        => ["required", "max:255"],
             "description_ar" => ["required"],
             "description_en" => ["required"],
-            "data"           => ["required"],
+            "date"           => ["required"],
             "icon"           => ["required"],
             "background"     => ["required"],
             "phone"          => ["required"],
@@ -39,7 +39,7 @@ class DigisolAppsController extends Controller
 
     public function index()
     {
-        $data["apps"] = DigisolApp::all();
+        $data["apps"] = AppsPage::where('company','digisol')->get();
         return view("admin.digisol.apps.index", $data);
     }
 
@@ -67,7 +67,7 @@ class DigisolAppsController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.apps.create")->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $apps = new DigisolApp();
+        $apps = new AppsPage();
         $apps->name_en = $request->name_en;
         $apps->name_ar = $request->name_ar;
         $apps->description_en = $request->description_en;
@@ -76,7 +76,8 @@ class DigisolAppsController extends Controller
         $apps->link_android = $request->link_android ?? null;
         $apps->link_ios = $request->link_ios ?? null;
         $apps->link_huawei = $request->link_huawei ?? null;
-        $apps->data = $request->data;
+        $apps->date = $request->date;
+        $apps->company = 'digisol';
         $apps->category_id = $request->category;
         if($apps->save()){
             if($request->hasFile("icon")){
@@ -103,7 +104,7 @@ class DigisolAppsController extends Controller
         $data['Ios']=$this->defaultIosPhoto();
         $data['Huawei']=$this->defaultHuaweiPhoto();
 
-        $data['app'] = DigisolApp::findOrFail($request->id);
+        $data['app'] = AppsPage::findOrFail($request->id);
         $data['Categorise'] = CategoryApps::where('status',1)->orderBy("order", "asc")->get();
         return view("admin.digisol.apps.edit", $data);
     }
@@ -111,7 +112,7 @@ class DigisolAppsController extends Controller
 
     public function Show(Request $request)
     {
-        $data['app'] = DigisolApp::findOrFail($request->id);
+        $data['app'] = AppsPage::findOrFail($request->id);
         return view("admin.digisol.apps.show", $data);
     }
 
@@ -128,7 +129,7 @@ class DigisolAppsController extends Controller
         if($valid->fails()){
             return redirect()->route("admin.digisol.apps.edit", ["id" => $request->id])->withInput($request->all())->withErrors($valid->errors()->messages());
         }
-        $app = DigisolApp::find($request->id);
+        $app = AppsPage::find($request->id);
         $app->name_en = $request->name_en;
         $app->name_ar = $request->name_ar;
         $app->description_en = $request->description_en;
@@ -137,7 +138,7 @@ class DigisolAppsController extends Controller
         $app->link_android = $request->link_android ?? null;
         $app->link_ios = $request->link_ios ?? null;
         $app->link_huawei = $request->link_huawei ?? null;
-        $app->data = $request->data;
+        $app->date = $request->date;
         $app->category_id = $request->category;
         $app->save();
         if($request->file("icon")){
@@ -164,7 +165,7 @@ class DigisolAppsController extends Controller
 
     public function destroy(Request $request)
     {
-        $apps = DigisolApp::find($request->id);
+        $apps = AppsPage::find($request->id);
         $apps->delete();
         $message = (new DangerMessage())->title("Deleted Successfully")
             ->body("The apps Has Been Deleted Successfully");

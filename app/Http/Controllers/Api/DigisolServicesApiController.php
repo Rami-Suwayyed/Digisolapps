@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse\Json\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DigisolAboutResource;
-use App\Models\DigisolService;
+use App\Models\ServicePage;
 
 class DigisolServicesApiController extends Controller
 {
 
     public function index(){
-        $Services = DigisolService::all();
+        $Services = ServicePage::where('company','digisol')->get();
         foreach ($Services as $index=> $Service){
             $title=$Service->getTitleAttribute();
             $Description=$Service->getDescriptionAttribute();
